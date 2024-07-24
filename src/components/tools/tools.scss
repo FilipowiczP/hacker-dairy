@@ -1,0 +1,12 @@
+@use "sass:map";
+@import "../../styles/variables";
+
+section{
+    padding: 24px 0;
+    h1{
+        text-align: center;
+        font-size: 32px;
+        color: map.get($colors, "link");
+        font-weight: 500;
+    }
+}

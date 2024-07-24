@@ -17,7 +17,7 @@ const Navigation = () => {
             {navigationList.map((link, index)=>{
                 return(
                     <li key={index} className={index === state ? 'link active' : 'link'} onClick={() =>handleLinkHover(index)} >
-                        <Link to={link.path}>{link.name}</Link>
+                        {link.path === '' ? <p>{link.name}</p> : <Link to={link.path}>{link.name}</Link>}
 
                         {link.subLinks ? 
                             <ul className='sublinks'>

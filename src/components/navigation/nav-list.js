@@ -1,38 +1,18 @@
 export const navigationList = [
     {
         name: 'Web',
-        path: '/web',
+        path: '',
         subLinks:[
             {
-                name: 'Test',
-                path: '/test'
-            },
-            {
-                name: 'Test',
-                path: '/test'
-            },
-            {
-                name: 'Test',
-                path: '/test'
-            },
-            {
-                name: 'Test',
-                path: '/test'
+                name: 'Web Requests',
+                path: '/web-requests'
             },
         ]
     },
     {
-        name: 'TEST',
-        path: '/web',
+        name: 'Tools',
+        path: '/tools',
         subLinks:[
-            {
-                name: 'Test123',
-                path: '/test123'
-            },
-            {
-                name: 'Test123',
-                path: '/test123'
-            },
         ]
     }
 ]
