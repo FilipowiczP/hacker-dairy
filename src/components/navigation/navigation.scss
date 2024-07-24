@@ -80,5 +80,6 @@ nav{
         min-width: 100px;
         font-weight: 400;
         display: inline-block;
+        color: map.get($colors,"link");
     }
 }

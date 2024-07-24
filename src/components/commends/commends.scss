@@ -1,0 +1,30 @@
+@use "sass:map";
+@import "../../styles/variables";
+
+.commends{
+    ul{
+
+        h2,h3,h4,h5,h6{
+    
+            text-align: left;
+        }
+
+        li{
+            margin-left: 32px;
+
+            .example{
+                color: map.get($colors,"important");
+            }
+        }
+    }
+    
+    table{
+        tbody{
+            tr{
+                td:nth-child(2){
+                    color: map.get($colors,"link");
+                }
+            }
+        }
+    }
+}

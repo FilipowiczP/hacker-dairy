@@ -14,5 +14,11 @@ export const navigationList = [
         path: '/tools',
         subLinks:[
         ]
+    },
+    {
+        name: 'Commends',
+        path: '/commends',
+        subLinks:[
+        ]
     }
 ]
