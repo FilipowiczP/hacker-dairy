@@ -28,7 +28,7 @@ footer, header, hgroup, menu, nav, section {
 	display: block;
 }
 body {
-	line-height: 1;
+	line-height: 1.4;
 }
 ol, ul {
 	list-style: none;
@@ -65,6 +65,14 @@ a {
 	color: map.get($colors,"link");
 }
 
+.error{
+	color: map.get($colors,"important");
+}
+
+.waring{
+	color: map.get($colors,"waring");
+}
+
 .code{
 	color: map.get($colors,"important");
 	span {
@@ -94,7 +102,7 @@ table{
 			}
 			td{
 				padding: 24px 18px;
-				line-height: 1.2;
+				line-height: 1.4;
 			}
 		}
 		tr:nth-child(odd) {
@@ -105,17 +113,17 @@ table{
 }
 
 section {
-	max-width: 1200px;
+	max-width: 1410px;
 	margin: auto;
 	img {
 		display: block;
-		margin: auto !important;
+		width: 100%;
 	}
 
 	p,a,li,img,h1,h2,h3,h4,h5,h6 {
 		margin: 12px 0;
-		font-size: 16px;
-		line-height: 1.2;
+		font-size: 18px;
+		line-height: 1.4;
 	}
 
 	h2,h3,h4,h5,h6 {
@@ -138,4 +146,13 @@ section {
 		text-align: left;
 		font-size: 22px;
 	}
+
+	
+ol {
+	li {
+		line-height: 1.4;
+		font-size: 18px;
+		list-style: decimal;
+	}
+}
 }

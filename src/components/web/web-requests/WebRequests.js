@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import web_structure from '../../../assets/web_structure.png';
 import web_dns_request from '../../../assets/http_dns_request.png';
 import https_flow from '../../../assets/https_flow.png';
+import dns_query from '../../../assets/dns_query.png';
 
 const WebRequests = () => {
 
@@ -21,7 +22,8 @@ const WebRequests = () => {
             </ul>
             <p>Nie wszystkie komponenty są wymagane, aby uzyskać dostęp do zasobu. Głównymi obowiązkowymi polami są schemat i host, bez których żądanie nie byłoby zasobu, o który można by poprosić.</p>
             <img src={web_dns_request} width='900px'/>
-            <p>W pierwszej kolejności przeglądarka robi zapytanie <span className='important'>/etc/hosts</span></p>
+            <p>W pierwszej kolejności przeglądarka robi zapytanie <span className='important'>/etc/hosts</span> dla Linux</p>
+            <p><span className='important'>C:\Windows\System32\drivers\etc\hosts</span> dla Windows</p>
 
             <h2><Link to='/commends#curl'>cURL</Link></h2>
             <p>cURL nie renderuje kodu HTML/JavaScript/CSS, w przeciwieństwie do przeglądarki internetowej, ale drukuje go w nieprzetworzonym formacie</p>
@@ -81,7 +83,7 @@ const WebRequests = () => {
             </table>
 
             <h2>Response Codes</h2>
-            <table class="table table-striped text-left">
+            <table>
                 <thead>
                   <tr>
                         <th>Typ</th>
@@ -111,6 +113,33 @@ const WebRequests = () => {
                     </tr>
                 </tbody>
             </table>
+
+            <img src={dns_query} width='1200px'/>
+            <ol>
+                <li>
+                    <span className='important'>Sprawdzanie pamięci komputera (DNS Query)</span>: Kiedy wpisujesz nazwę domeny, Twój komputer najpierw sprawdza swoją pamięć (cache), aby sprawdzić, czy pamięta adres IP z poprzedniej wizyty. Jeśli nie, kontaktuje się z narzędziem do rozpoznawania nazw DNS, zwykle udostępnianym przez dostawcę usług internetowych (internet service provider - ISP).
+
+                </li>
+                <li>
+                    <span className='important'>Narzędzie do rozpoznawania nazw DNS sprawdza swoją mapę (wyszukiwanie rekurencyjne) - The DNS Resolver Checks its Map (Recursive Lookup)</span>: Mechanizm rozpoznawania nazw również posiada pamięć podręczną i jeśli nie znajdzie tam adresu IP, rozpoczyna podróż przez hierarchię DNS. Rozpoczyna się od zapytania do głównego serwera nazw, który działa jak bibliotekarz w Internecie.
+                </li>
+                <li>
+                    <span className='important'>Główny serwer nazw wskazuje drogę - Root Name Server Points the Way</span>: Serwer główny nie zna dokładnego adresu, ale wie, kto go zna – serwer nazw domeny najwyższego poziomu (Top-Level Domain - TLD) odpowiedzialny za zakończenie domeny (np. .com, .org). Wskazuje przelicznikowi właściwy kierunek.
+                </li>
+                <li>
+                    <span className='important'>Serwer nazw TLD zawęża zakres - TLD Name Server Narrows It Down</span>: Serwer nazw TLD przypomina mapę regionalną. Wie, który autorytatywny serwer nazw jest odpowiedzialny za konkretną domenę, której szukasz (np. example.com) i wysyła tam program rozpoznawania nazw.
+                </li>
+                <li>
+                    <span className='important'>Autorytatywny serwer nazw dostarcza adres - Authoritative Name Server Delivers the Address</span>: Autorytatywny serwer nazw to ostatni przystanek. To jak adres wybranej witryny internetowej. Przechowuje prawidłowy adres IP i wysyła go z powrotem do usługi rozpoznawania nazw.
+                </li>
+                <li>
+                    <span className='important'>Narzędzie do rozpoznawania nazw DNS zwraca informacje - The DNS Resolver Returns the Information</span>: Usługa rozpoznawania nazw otrzymuje adres IP i przekazuje go Twojemu komputerowi. Zapamiętuje go również na chwilę, na wypadek gdybyś chciał wkrótce ponownie odwiedzić witrynę.
+
+                </li>
+                <li>
+                    <span className='important'>Połączenie ze stroną/ aplikacją</span>: Teraz, gdy Twój komputer zna adres IP, może połączyć się bezpośrednio z serwerem WWW hostującym witrynę i rozpocząć przeglądanie.
+                </li>
+            </ol>
         </section>
     )
 };

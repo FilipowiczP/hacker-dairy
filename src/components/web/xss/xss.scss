@@ -1,0 +1,14 @@
+@use "sass:map";
+@import '../../../styles/variables';
+
+section{
+    table{
+        tbody{
+            tr{
+                td:first-child{
+                    color: map.get($colors,"link");
+                }
+            }
+        }
+    }
+}

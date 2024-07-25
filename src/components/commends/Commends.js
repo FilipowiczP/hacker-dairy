@@ -68,6 +68,28 @@ const Commends = () => {
                 </tr>
                 </tbody>
             </table>
+
+            <h2>XSS</h2>
+            <p className='important'>{'#"><img src=/ onerror=alert(document.cookie)>'}</p>
+
+            <h2>WHOIS</h2>
+            <h4 className='important'>whois inlanefreight.com</h4>
+            <ul>
+                <li>
+                    <span className='important'>Nazwa domeny (Domain Name)</span>: Nazwa domeny (np. example.com)</li>
+                <li>
+                    <span className='important'>Zarejstrowana (Registrar)</span>: Firma, w której zarejestrowana została domena (np. GoDaddy, Namecheap)</li>
+                <li>
+                    <span className='important'>Kontakt z rejestrującym (Registrant Contact)</span>: Osoba lub organizacja, która zarejestrowała domenę.</li>
+                <li>
+                    <span className='important'>Kontakt administracyjny (Administrative Contact)</span>: Osoba odpowiedzialna za zarządzanie domeną (The person responsible for managing the domain)</li>
+                <li>
+                    <span className='important'>Kontakt techniczny (Technical Contact)</span>: Osoba zajmująca się sprawami technicznymi związanymi z domeną.</li>
+                <li>
+                    <span className='important'>Daty utworzenia i wygaśnięcia (Creation and Expiration Dates)</span>: Kiedy domena została zarejestrowana i kiedy wygaśnie.</li>
+                <li>
+                <span className='important'>Nazwa serwera (Name Servers)</span>: Serwery tłumaczące nazwę domeny na adres IP.</li>
+            </ul>
         </section>
     )
 };

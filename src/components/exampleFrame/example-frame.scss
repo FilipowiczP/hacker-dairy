@@ -1,0 +1,19 @@
+@use "sass:map";
+@import '../../styles/variables';
+
+.example{
+    margin: 24px 0;
+    h1{
+        text-align: left;
+        background-color: map.get($colors,"tableBackground");
+        line-height: 1;
+        margin-bottom: 0;
+        padding: 12px;
+        font-size: 18px;
+    }
+    img{
+        width: 100%;
+        margin: 0;
+        border: 1px solid map.get($colors,"tableBackground");
+    }
+}

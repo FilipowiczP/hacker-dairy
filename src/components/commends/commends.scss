@@ -5,13 +5,13 @@
     ul{
 
         h2,h3,h4,h5,h6{
-    
             text-align: left;
         }
 
         li{
             margin-left: 32px;
-
+            list-style: disc;
+            font-size: 18px;
             .example{
                 color: map.get($colors,"important");
             }
@@ -26,5 +26,9 @@
                 }
             }
         }
+    }
+
+    p {
+        font-size: 18px;
     }
 }

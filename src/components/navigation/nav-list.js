@@ -7,6 +7,18 @@ export const navigationList = [
                 name: 'Web Requests',
                 path: '/web-requests'
             },
+            {
+                name: 'Web Application',
+                path: '/web-application'
+            },
+            {
+                name: 'Web Information Gathering',
+                path: '/web-information-gathering'
+            },
+            {
+                name: 'Cross-Site Scripting (XSS)',
+                path: '/xss'
+            },
         ]
     },
     {
