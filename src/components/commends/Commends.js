@@ -1,4 +1,5 @@
 import './commends.scss';
+import { Link } from 'react-router-dom';
 
 const Commends = () => {
 
@@ -90,6 +91,122 @@ const Commends = () => {
                 <li>
                 <span className='important'>Nazwa serwera (Name Servers)</span>: Serwery tłumaczące nazwę domeny na adres IP.</li>
             </ul>
+
+            <h2 id="dig">dig (Domain Information Groper)</h2>
+            <p>Polecenie dig (Domain Information Groper) to wszechstronne i potężne narzędzie do wysyłania zapytań do serwerów DNS i pobierania różnych typów rekordów DNS. Jego elastyczność oraz szczegółowe i konfigurowalne wydruki sprawiają, że jest to doskonały wybór.</p>
+            <table class="table table-striped text-left">
+                <thead>
+                    <tr>
+                    <th>Komenda</th>
+                    <th>Opis</th>
+                    </tr>
+                </thead>
+                <tbody className='description'>
+                    <tr>
+                    <td>dig domain.com</td>
+                    <td>Wykonuje domyślne wyszukiwanie rekordów A dla domeny.</td>
+                    </tr>
+                    <tr>
+                    <td>dig domain.com A</td>
+                    <td>Pobiera adres IPv4 (rekord A) powiązany z domeną.</td>
+                    </tr>
+                    <tr>
+                    <td>dig domain.com AAAA</td>
+                    <td>Pobiera adres IPv6 (rekord AAAA) powiązany z domeną.</td>
+                    </tr>
+                    <tr>
+                    <td>dig domain.com MX</td>
+                    <td>Znajduje serwery pocztowe (rekordy MX) odpowiedzialne za domenę.</td>
+                    </tr>
+                    <tr>
+                    <td>dig domain.com NS</td>
+                    <td>Identyfikuje autorytatywne serwery nazw dla domeny.</td>
+                    </tr>
+                    <tr>
+                    <td>dig domain.com TXT</td>
+                    <td>Pobiera wszystkie rekordy TXT powiązane z domeną.</td>
+                    </tr>
+                    <tr>
+                    <td>dig domain.com CNAME</td>
+                    <td>Pobiera rekord nazwy kanonicznej (CNAME) dla domeny.</td>
+                    </tr>
+                    <tr>
+                    <td>dig domain.com SOA</td>
+                    <td>Pobiera rekord początku uprawnień (SOA) dla domeny.</td>
+                    </tr>
+                    <tr>
+                    <td>dig @1.1.1.1 domain.com</td>
+                    <td>Określa konkretny serwer nazw, do którego ma zostać wysłane zapytanie; w tym przypadku 1.1.1.1</td>
+                    </tr>
+                    <tr>
+                    <td>dig +trace domain.com</td>
+                    <td>Pokazuje pełną ścieżkę rozpoznawania DNS.</td>
+                    </tr>
+                    <tr>
+                    <td>dig -x 192.168.1.1</td>
+                    <td>Wykonuje wyszukiwanie wsteczne adresu IP 192.168.1.1 w celu znalezienia powiązanej nazwy hosta. Może być konieczne określenie serwera nazw.</td>
+                    </tr>
+                    <tr>
+                    <td>dig +short domain.com</td>
+                    <td>Podaje krótką i zwięzłą odpowiedź na zapytanie.</td>
+                    </tr>
+                    <tr>
+                    <td>dig +noall +answer domain.com</td>
+                    <td>Wyświetla tylko sekcję odpowiedzi wyniku zapytania.</td>
+                    </tr>
+                    <tr>
+                    <td>dig domain.com ANY</td>
+                    <td>Pobiera wszystkie dostępne rekordy DNS dla domeny (Uwaga: wiele serwerów DNS ignoruje ANY zapytania, aby zmniejszyć obciążenie i zapobiec nadużyciom, zgodnie z RFC 8482).</td>
+                    </tr>
+                    <tr>
+                    <td>dig axfr @nsztm1.digi.ninja(DNS server) zonetransfer.me</td>
+                    <td>To polecenie instruuje dig, aby zażądał pełnego transferu strefy (axfr) z serwera DNS odpowiedzialnego zazonetransfer.me. Jeśli serwer jest źle skonfigurowany i pozwala na transfer, otrzymasz pełną listę rekordów DNS dla domeny, łącznie ze wszystkimi subdomenami.</td>
+                    </tr>
+                </tbody>
+            </table>
+            <div className='waring'>
+                <p>Uwaga: niektóre serwery mogą wykrywać i blokować nadmierną liczbę zapytań DNS. Zachowaj ostrożność i przestrzegaj limitów stawek. Zawsze uzyskaj pozwolenie przed wykonaniem obszernego rozpoznania DNS celu.</p>
+            </div>
+
+            <h2><Link to='/tools'>dnsenum</Link></h2>
+            <p>Kompleksowe narzędzie do wyliczania DNS, które obsługuje ataki słownikowe i brute-force w celu wykrycia subdomen.</p>
+            <table>
+                <thead>
+                    <tr>
+                    <th>Komenda</th>
+                    </tr>
+                </thead>
+                <tbody className='description'>
+                    <tr>
+                    <td>dnsenum --enum (nazwa strony) -f (lista słów (word list)) -r</td>
+                    </tr>
+                    <tr>
+                    <td>dnsenum --enum inlanefreight.com -f /usr/share/seclists/Discovery/DNS/subdomains-top1million-110000.txt -r</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h2><Link to='/tools'>gobuster</Link></h2>
+            <p>Wielozadaniowe narzędzie często używane do brutalnego wymuszania katalogów/plików, ale także skuteczne do wykrywania hostów wirtualnych.</p>
+            <table>
+                <thead>
+                    <tr>
+                    <th>Komenda</th>
+                    </tr>
+                </thead>
+                <tbody className='description'>
+                    <tr>
+                    <td>gobuster vhost -u (http://target_IP_address) -w (wordlist_file) --append-domain</td>
+                    </tr>
+                    <tr>
+                    <td>gobuster vhost -u http://inlanefreight.htb:81 -w /usr/share/seclists/Discovery/DNS/subdomains-top1million-110000.txt --append-domain</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div className='waring'>
+                <p>W nowszych wersjach Gobustera flaga --append-domain jest wymagana w celu dołączenia domeny bazowej do każdego słowa na liście słów podczas wykrywania hosta wirtualnego. Ta flaga zapewnia, że ​​Gobuster poprawnie konstruuje pełne wirtualne nazwy hostów, co jest niezbędne do dokładnego wyliczenia potencjalnych subdomen. W starszych wersjach Gobuster ta funkcjonalność była obsługiwana inaczej i flaga --append-domain nie była konieczna. Użytkownicy starszych wersji mogą uznać tę flagę za niedostępną lub potrzebną, ponieważ narzędzie domyślnie dołączało domenę bazową lub wykorzystywało inny mechanizm generowania hosta wirtualnego.</p>
+            </div>
         </section>
     )
 };

@@ -1,5 +1,6 @@
 import ExampleFrame from "../../exampleFrame/ExampleFrame";
 import dns_example from '../../../assets/dns_example.png';
+import { Link } from 'react-router-dom';
 
 const WebInformationGathering = () => {
 
@@ -196,6 +197,44 @@ const WebInformationGathering = () => {
                     <td>Rekord wskaźnika - Pointer Record</td>
                     <td>Używany do odwrotnego wyszukiwania DNS, mapowania adresu IP na nazwę hosta.</td>
                     <td className="important">1.2.0.192.in-addr.arpa. IN PTR www.example.com.</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h2>Narzędzia DNS</h2>
+            <table>
+                <thead>
+                    <tr>
+                    <th>Narzędzie</th>
+                    <th>Cechy</th>
+                    <th>Case</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                    <td><Link to="/commends#dig">dig</Link></td>
+                    <td>Wszechstronne narzędzie do wyszukiwania DNS, które obsługuje różne typy zapytań (A, MX, NS, TXT itp.) i szczegółowe wyniki.</td>
+                    <td>Ręczne zapytania DNS, transfery stref (jeśli są dozwolone), rozwiązywanie problemów z DNS i dogłębna analiza rekordów DNS.</td>
+                    </tr>
+                    <tr>
+                    <td>nslookup</td>
+                    <td>Prostsze narzędzie do wyszukiwania DNS, głównie dla rekordów A, AAAA i MX.</td>
+                    <td>Podstawowe zapytania DNS, szybkie sprawdzenie rozdzielczości domeny i rekordów serwera pocztowego.</td>
+                    </tr>
+                    <tr>
+                    <td>host</td>
+                    <td>Usprawnione narzędzie do wyszukiwania DNS ze zwięzłymi wynikami.</td>
+                    <td>Szybkie sprawdzanie rekordów A, AAAA i MX.</td>
+                    </tr>
+                    <tr>
+                    <td>dnsenum</td>
+                    <td>Zautomatyzowane narzędzie do wyliczania DNS, ataki słownikowe, brutalne wymuszanie, transfery stref (jeśli są dozwolone).</td>
+                    <td>Odkrywanie subdomen i efektywne zbieranie informacji DNS.</td>
+                    </tr>
+                    <tr>
+                    <td>dnsrecon</td>
+                    <td>Łączy wiele technik rozpoznania DNS i obsługuje różne formaty wyjściowe.</td>
+                    <td>Kompleksowe wyliczanie DNS, identyfikacja subdomen i gromadzenie rekordów DNS do dalszej analizy.</td>
                     </tr>
                 </tbody>
             </table>

@@ -12,6 +12,7 @@
             margin-left: 32px;
             list-style: disc;
             font-size: 18px;
+            text-align: left;
             .example{
                 color: map.get($colors,"important");
             }
@@ -23,6 +24,13 @@
             tr{
                 td:nth-child(2){
                     color: map.get($colors,"link");
+                }
+            }
+        }
+        tbody.description{
+            tr{
+                td:nth-child(2){
+                    color: map.get($colors,"font");
                 }
             }
         }
