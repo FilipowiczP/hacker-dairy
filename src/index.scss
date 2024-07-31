@@ -78,12 +78,29 @@ a {
 	color: map.get($colors,"waring");
 }
 
+.defense{
+	color: map.get($colors,"defense");
+}
+
 .code{
 	color: map.get($colors,"important");
 	span {
 		color: map.get($colors,"link");
 	}
 }
+
+.example_code{
+	p{
+		text-align: left;
+	}
+}
+
+@for $i from 1 through 8 {
+	.tab-#{$i}{
+		padding-left: calc(24px * #{$i});
+	}
+  }
+
 
 table{
 	margin: 24px 0;
@@ -169,11 +186,11 @@ section {
 	}
 
 	
-ol {
-	li {
-		line-height: 1.4;
-		font-size: 18px;
-		list-style: decimal;
+	ol {
+		li {
+			line-height: 1.4;
+			font-size: 18px;
+			list-style: decimal;
+		}
 	}
-}
 }

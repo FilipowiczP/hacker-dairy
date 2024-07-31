@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import './web-application.scss';
 
 const WebApplication = () => {
@@ -89,6 +90,10 @@ const WebApplication = () => {
                 </tr>
                 </tbody>
             </table>
+
+            <div className='waring'>
+                <p>Uwaga: Do odczytania konfiguracji serwera, takiej jak konfiguracja <span className='important'>Apache znaleziona w /etc/apache2/apache2.conf</span>, konfiguracja <span className='important'>Nginx w /etc/nginx/nginx.conf lub konfiguracja IIS w %WinDir%\System32 \Inetsrv\Config\ApplicationHost.config</span> lub możemy wyszukać w Internecie inne możliwe lokalizacje konfiguracji. Co więcej, możemy uruchomić skanowanie rozmyte i spróbować zapisać pliki w różnych możliwych katalogach głównych sieci, używając tej <Link to='https://github.com/FilipowiczP/SecLists/blob/master/Discovery/Web-Content/default-web-root-directory-linux.txt'>listy słów dla Linuksa</Link> lub tej <Link to='https://github.com/FilipowiczP/SecLists/blob/master/Discovery/Web-Content/default-web-root-directory-windows.txt'>listy słów dla Windows</Link>. Wreszcie, jeśli żadne z powyższych nie zadziała, możemy wykorzystać wyświetlane nam błędy serwera i spróbować w ten sposób znaleźć katalog internetowy.</p>
+            </div>
          </section>
     )
 };

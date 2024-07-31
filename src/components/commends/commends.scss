@@ -27,6 +27,16 @@
                 }
             }
         }
+        tbody.reverse{
+            tr{
+                td:nth-child(1){
+                    color: map.get($colors,"font");
+                }
+                td:nth-child(2){
+                    color: map.get($colors,"link");
+                }
+            }
+        }
         tbody.description{
             tr{
                 td:nth-child(2){

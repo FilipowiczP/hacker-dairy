@@ -19,6 +19,24 @@ export const navigationList = [
                 name: 'Cross-Site Scripting (XSS)',
                 path: '/xss'
             },
+            {
+                name: 'HTB-XSS',
+                path: '/htb-xss'
+            },
+        ]
+    },
+    {
+        name: 'Database',
+        path: '/',
+        subLinks:[
+            {
+                name: 'MySQL',
+                path: '/mysql'
+            },
+            {
+                name: 'HTB-MySQL',
+                path: '/htb-mysql'
+            },
         ]
     },
     {

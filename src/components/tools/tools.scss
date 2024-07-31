@@ -1,7 +1,7 @@
 @use "sass:map";
 @import "../../styles/variables";
 
-section{
+section.tools{
     padding: 24px 0;
     text-align: center;
     h1{
@@ -16,5 +16,13 @@ section{
         text-decoration: underline;
         padding: 8px;
         display: inline-block;
+        width: 100%;
+    }
+    
+    ul{
+        li{
+            list-style: disc;
+            width: fit-content;
+        }
     }
 }
