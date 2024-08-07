@@ -166,7 +166,7 @@ section {
 		width: 100%;
 	}
 
-	h1{
+	h1 {
         text-align: center;
         font-size: 32px;
         color: map.get($colors, "link");
@@ -179,8 +179,12 @@ section {
 		line-height: 1.4;
 	}
 
-	a{
+	a {
 		font-size: 24px;
+	}
+
+	p {
+		text-align: justify;
 	}
 
 	h2,h3,h4,h5,h6 {

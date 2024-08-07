@@ -5,6 +5,9 @@ import file_upload_request_changed from '../../../assets/file_upload_request_cha
 import file_upload_fuzz_extenction from '../../../assets/file_upload_fuzz_extenction.png';
 import file_upload_fuzz_extenction_result from '../../../assets/file_upload_fuzz_extenction_result.png';
 import file_upload_white_list from '../../../assets/file_upload_white_list.png';
+import file_upload_mime_example from '../../../assets/file_upload_mime_example.png';
+import file_upload_mime_example2 from '../../../assets/file_upload_mime_example2.png';
+import file_upload_mime_example3 from '../../../assets/file_upload_mime_example3.png';
 import ExampleFrame from '../../exampleFrame/ExampleFrame';
 
 const FileUpload = () => {
@@ -111,6 +114,32 @@ const FileUpload = () => {
             <div className='waring'>
                 <p>Uwaga: Żądanie HTTP przesyłania pliku ma dwa nagłówki Content-Type, jeden dla dołączonego pliku (na dole) i jeden dla pełnego żądania (na górze). Zwykle musimy zmodyfikować nagłówek Content-Type pliku, ale w niektórych przypadkach żądanie będzie zawierać tylko główny nagłówek Content-Type (np. jeśli przesłana treść została wysłana jako dane POST), w takim przypadku będziemy musieli zmodyfikować główny nagłówek Nagłówek typu zawartości.</p>
             </div>
+
+            <hr />
+            
+            <h3>MIME-Type. Multipurpose Internet Mail Extensions (MIME)</h3>
+            <p>Drugim i bardziej powszechnym typem sprawdzania zawartości pliku jest testowanie typu MIME przesłanego pliku. Wielozadaniowe rozszerzenia poczty internetowej (MIME) to standard internetowy określający typ pliku na podstawie jego ogólnego formatu i struktury bajtów. Zwykle robi się to poprzez sprawdzenie kilku pierwszych bajtów zawartości pliku, które zawierają <Link to='https://en.wikipedia.org/wiki/List_of_file_signatures'>podpis pliku</Link> lub <Link to='https://opensource.apple.com/source/file/file-23/file/magic/magic.mime'>magiczne bajty</Link>. Na przykład, jeśli plik zaczyna się od (GIF87a lub GIF89a), oznacza to, że jest to obraz GIF, podczas gdy plik zaczynający się od zwykłego tekstu jest zwykle uważany za plik tekstowy. Jeśli zmienimy pierwsze bajty dowolnego pliku na magiczne bajty GIF, jego typ MIME zostanie zmieniony na obraz GIF, niezależnie od pozostałej zawartości i rozszerzenia.</p>
+            <ExampleFrame screen={file_upload_mime_example}/>
+            <p>Jak widzimy, typ MIME pliku to tekst ASCII, mimo że jego rozszerzenie to .jpg. Jeśli jednak na początku pliku napiszemy GIF8, zostanie on uznany za obraz GIF, mimo że jego rozszerzenie to nadal .jpg:</p>
+            <ExampleFrame screen={file_upload_mime_example2}/>
+            <p>Po przekazaniu naszej prośby zauważamy, że pojawia się komunikat o błędzie. <span className='important'>Only images are allowed</span>. Teraz spróbujmy dodać <span className='important'>GIF8</span> przed naszym kodem PHP, aby spróbować imitować obraz GIF, zachowując jednocześnie rozszerzenie pliku <span className='important'>.php</span></p>
+            <ExampleFrame screen={file_upload_mime_example3}/>
+            <div className='waring'>
+                <p>Uwaga: widzimy, że wyjście polecenia zaczyna się od <span className='important'>GIF8</span> , ponieważ była to pierwsza linia naszego skryptu PHP imitująca magiczne bajty GIF, a teraz jest wyświetlana jako zwykły tekst przed wykonaniem naszego kodu PHP.</p>
+            </div>
+
+            <hr />
+
+            <h3><Link to='/xss'>Zaszywanie XSS w plikach</Link></h3>
+            
+            <hr />
+            
+            <h3><Link to='/xxe'>Zaszywanie XXE w plikach</Link></h3>
+
+            <hr />
+
+            <h2>DoS</h2>
+            <p>Możliwym atakiem DoS jest atak <span className='important'>Pixel Flood</span> wykorzystujący niektóre pliki graficzne wykorzystujące kompresję obrazu, takie jak <span className='important'>JPG lub PNG</span>. Możemy utworzyć dowolny plik obrazu JPG o dowolnym rozmiarze (<span className='important'>np. 500x500</span>), a następnie ręcznie zmodyfikować jego dane kompresji, aby powiedzieć, że ma rozmiar (<span className='important'>64250 x 64250</span>)(<span className='important'>0xffff x 0xffff</span>), co daje obraz o postrzeganym rozmiarze <span className='error'>4 Gigapikseli</span>. Gdy aplikacja internetowa spróbuje wyświetlić obraz, podejmie próbę przydzielenia całej swojej pamięci temu obrazowi, co spowoduje awarię serwera zaplecza.</p>
         </section>
     )
 };

