@@ -8,8 +8,8 @@ const HTBXSS = () =>{
         <div class="table-responsive"><table class="table table-striped text-left">
         <thead>
         <tr>
-        <th>Code</th>
-        <th>Description</th>
+        <th>Kod</th>
+        <th>Opis</th>
         </tr>
         </thead>
         <tbody>

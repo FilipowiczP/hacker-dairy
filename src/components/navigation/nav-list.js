@@ -23,6 +23,14 @@ export const navigationList = [
                 name: 'HTB-XSS',
                 path: '/htb-xss'
             },
+            {
+                name: 'Commands Injection',
+                path: '/commands-injection'
+            },
+            {
+                name: 'File Upload Attack',
+                path: '/file-upload-attack'
+            },
         ]
     },
     {
@@ -42,6 +50,12 @@ export const navigationList = [
     {
         name: 'Tools',
         path: '/tools',
+        subLinks:[
+        ]
+    },
+    {
+        name: 'Linux commands',
+        path: '/linux-commends',
         subLinks:[
         ]
     },

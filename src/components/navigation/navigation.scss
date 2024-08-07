@@ -19,11 +19,13 @@ nav{
     }
 
     .link{
+        width: 100%;
         & > a, & > p {
             z-index: 2;
             position: relative;
             transition: .2s;
             min-width: 100px;
+            width: 100%;
 
             &:hover{
                 color: map.get($colors, "background");
@@ -53,6 +55,12 @@ nav{
         max-height: 0px;
         height: 0;
         overflow: hidden;
+        li{
+            width: 100%;
+            & > a, & > p {
+                width: 100%;
+            }
+        }
     }
 
     .active{
@@ -66,7 +74,7 @@ nav{
             max-height: fit-content;
             height: auto;
             overflow: hidden;
-        
+            border: 1px solid map.get($colors, "link");
             a:hover{
                 color: map.get($colors, "background");
                 background: map.get($colors, "link");
@@ -76,7 +84,7 @@ nav{
 
     a, p {
         text-align: center;
-        padding: 8px;
+        padding: 8px 0;
         min-width: 100px;
         font-weight: 400;
         display: inline-block;

@@ -59,6 +59,8 @@ const WebApplication = () => {
                 </tbody>
             </table>
 
+            <hr />
+            
             <h2>Backend Servers</h2>
             <table class="table table-striped text-left">
                 <thead>

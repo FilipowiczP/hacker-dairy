@@ -25,6 +25,8 @@ const WebRequests = () => {
             <p>W pierwszej kolejności przeglądarka robi zapytanie <span className='important'>/etc/hosts</span> dla Linux</p>
             <p><span className='important'>C:\Windows\System32\drivers\etc\hosts</span> dla Windows</p>
 
+            <hr />
+
             <h2><Link to='/commends#curl'>cURL</Link></h2>
             <p>cURL nie renderuje kodu HTML/JavaScript/CSS, w przeciwieństwie do przeglądarki internetowej, ale drukuje go w nieprzetworzonym formacie</p>
             <p className='code'>curl -O (nazwa strony HTTP) <span>Pobieranie pliku</span></p>
@@ -33,6 +35,8 @@ const WebRequests = () => {
             <img src={https_flow} width='900px'/>
             <p>Można obniżyć do HTTP przez man in the middle jako proxy by otrzymywać nie zaszyfrowane dane</p>
             <p className='code'>curl -k https://inlanefreight.com/index.html <span>Pomijanie certyfikatu SSL</span></p>
+
+            <hr />
 
             <h2>Security Headers</h2>
             <table>
@@ -62,6 +66,8 @@ const WebRequests = () => {
                 </tbody>
             </table>
            
+            <hr />
+
             <h2>Request Metody</h2>
             <table>
                 <thead>
@@ -81,6 +87,8 @@ const WebRequests = () => {
                 </tr>
                 </tbody>
             </table>
+
+            <hr />
 
             <h2>Response Codes</h2>
             <table>

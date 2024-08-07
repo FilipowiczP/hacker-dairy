@@ -58,7 +58,7 @@ body {
 a {
   color: map.get($colors,"link");
   font-weight: 500;
-  text-decoration: none;
+  text-decoration: underline;
 }
 
 .normal{
@@ -87,6 +87,13 @@ a {
 	span {
 		color: map.get($colors,"link");
 	}
+}
+
+hr {
+	border-color: map.get($colors,"link");
+	margin: 70px 0;
+	width: 100%;
+	display: inline-block;
 }
 
 .example_code{
@@ -144,6 +151,7 @@ div.waring {
 	background-color: map.get($colors,"tableBackground");
 	padding: 16px;
 	border-radius: 8px;
+	margin: 24px 0;
 	p {
 		color: map.get($colors,"waring");
 	}
@@ -158,10 +166,21 @@ section {
 		width: 100%;
 	}
 
-	p,a,li,img,h1,h2,h3,h4,h5,h6 {
+	h1{
+        text-align: center;
+        font-size: 32px;
+        color: map.get($colors, "link");
+        font-weight: 500;
+    }
+
+	p,a,li,img,h2,h3,h4,h5,h6 {
 		margin: 12px 0;
 		font-size: 18px;
 		line-height: 1.4;
+	}
+
+	a{
+		font-size: 24px;
 	}
 
 	h2,h3,h4,h5,h6 {

@@ -8,6 +8,9 @@ import MySQL from './database/mysql/MySql';
 import WebInformationGathering from './web/web-information-gathering.js/WebInformationGathering';
 import HTBMySQL from './database/mysql/HTBMySql';
 import HTBXSS from './web/xss/HTBXSS';
+import LinuxCommands from './linux/commands/LinuxCommand';
+import CommandInjection from './web/comands-injection/ComandsInjection';
+import FileUpload from './web/file-upload/FileUpload';
 
 const Routing = () => {
     return(
@@ -21,6 +24,9 @@ const Routing = () => {
           <Route path="/mysql" element={<MySQL />} />
           <Route path="/htb-mysql" element={<HTBMySQL />} />
           <Route path="/htb-xss" element={<HTBXSS />} />
+          <Route path="/linux-commends" element={<LinuxCommands />} />
+          <Route path="/commands-injection" element={<CommandInjection />} />
+          <Route path="/file-upload-attack" element={<FileUpload />} />
       </Routes>
     )
 };

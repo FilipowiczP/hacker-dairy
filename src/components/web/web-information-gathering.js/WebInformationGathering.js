@@ -67,6 +67,8 @@ const WebInformationGathering = () => {
                 </tbody>
             </table>
             
+            <hr />
+
             <h2>Aktywne Rekonesans</h2>
             <p>Podczas aktywnego rozpoznania atakujący bezpośrednio wchodzi w interakcję z systemem docelowym w celu zebrania informacji. Ta interakcja może przybierać różne formy:</p>
             <table>
@@ -131,6 +133,8 @@ const WebInformationGathering = () => {
                 </tr>
                 </tbody>
             </table>
+
+            <hr />
 
             <h2>Koncepcja DNS</h2>
             <ExampleFrame screen={dns_example}/>
@@ -200,6 +204,8 @@ const WebInformationGathering = () => {
                     </tr>
                 </tbody>
             </table>
+
+            <hr />
 
             <h2>Narzędzia DNS</h2>
             <table>

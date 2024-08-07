@@ -39,11 +39,31 @@ const Tools = () => {
             <Link to='https://github.com/FilipowiczP/PayloadsAllTheThings'>PayloadsAllTheThings - Wszyskie możliwe wstrzyknięcia</Link>
             <Link to='https://github.com/FilipowiczP/PayloadsAllTheThings/tree/master/SQL%20Injection'>SQL Injections - Wszyskie możliwe wstrzyknięcia</Link>
             <Link to='https://github.com/FilipowiczP/PayloadsAllTheThings/tree/master/XSS%20Injection'>Xss - Wszyskie możliwe wstrzyknięcia</Link>
+            <Link to='https://github.com/FilipowiczP/PayloadsAllTheThings/tree/master/Command%20Injection#filter-bypasses'>Wszyskie możliwe ominięcia wstrzyknięcia komend</Link>
+            <Link to='https://github.com/FilipowiczP/bashfuscator'>Narzędzie automatyzujące komendy do wstrzyknięcia</Link>
+            <p>git clone https://github.com/FilipowiczP/bashfuscator</p>
+            <p>cd Bashfuscator</p>
+            <p>pip3 install setuptools==65</p>
+            <p>python3 setup.py install --user</p>
+            <p>cd ./bashfuscator/bin/</p>
+            <p>./bashfuscator -h</p>
             
+            <h3>Windows (DOSfuscation)</h3>
+            <Link to='https://github.com/FilipowiczP/Invoke-DOSfuscation'>Narzędzie automatyzujące komendy do wstrzyknięcia Windows</Link>
+            <p>git clone https://github.com/FilipowiczP/Invoke-DOSfuscation</p>
+            <p>cd Invoke-DOSfuscation</p>
+            <p>Import-Module .\Invoke-DOSfuscation.psd1</p>
+            <p>Invoke-DOSfuscation</p>
+            <p>SET COMMAND type <span className='important'>C:\Users\htb-student\Desktop\flag.txt</span></p>
+            <p>encoding</p>
+            <p>1</p>
             
-            
-            
-            
+
+            <Link to='https://github.com/FilipowiczP/phpbash'>Plik .php do webowego shella</Link>
+            <Link to='https://github.com/FilipowiczP/PayloadsAllTheThings/blob/master/Upload%20Insecure%20Files/Extension%20PHP/extensions.lst'>Lista rozszerzeń PHP</Link>
+            <Link to='https://github.com/FilipowiczP/SecLists/blob/master/Discovery/Web-Content/web-extensions.txt'>Ogólna lista rozszerzeń</Link>
+            <Link to='https://github.com/FilipowiczP/SecLists/blob/master/Miscellaneous/Web/content-type.txt'>Lista content-types</Link>
+
         </section>
     )
 };

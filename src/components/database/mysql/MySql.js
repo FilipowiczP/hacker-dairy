@@ -71,6 +71,8 @@ const MySQL = () => {
                 Uwaga: ładunek, którego użyliśmy powyżej, jest jednym z wielu ładunków obejścia uwierzytelniania, których możemy użyć do obalenia logiki uwierzytelniania. Pełną listę ładunków obejścia uwierzytelniania SQLi można znaleźć w <Link to='https://github.com/FilipowiczP/PayloadsAllTheThings/tree/master/SQL%20Injection'>PayloadAllTheThings</Link>, z których każdy działa na określonym typie zapytań SQL.</p>
             </div>
             
+            <hr />
+
             <h2>Komentarze</h2>
             <p>Jak każdy inny język, SQL pozwala również na użycie komentarzy. Komentarze służą do dokumentowania zapytań lub ignorowania określonej części zapytania. Możemy używać dwóch typów komentarzy liniowych z MySQL <span className='important'>'-- '</span> i <span className='important'>#</span>, oprócz komentarza wbudowanego /**/ (chociaż nie jest to zwykle używane przy iniekcjach SQL). <span className='important'>'-- '</span> może być użyte w następujący sposób:
             </p>
@@ -89,6 +91,8 @@ const MySQL = () => {
             <p>Aby pomyślnie wykonać zapytanie, będziemy musieli dodać nawias zamykający. Spróbujmy użyć nazwy użytkownika <span className='important'>admin')-- </span> - aby zamknąć i skomentować resztę.</p>
             <p>SELECT * FORM logins WHERE (username='admin' AND id > 1) AMD password = 'xyz'</p>
             <p>SELECT * FORM logins WHERE (username='<span className='important'>admin')-- </span><span className='error'>AND id > 1) AMD password = 'xyz'</span></p>
+
+            <hr />
 
             <h2>Union</h2>
             <p>Łączenie zapytań SELECT</p>
@@ -111,8 +115,9 @@ const MySQL = () => {
             <p>Wstrzykujemy <span className='important'>cn' UNION select 1,2,3,4-- -</span></p>
             <img src={sql_union} />
 
-            <h2>Czytanie plików</h2>
+            <hr />
 
+            <h2>Czytanie plików</h2>
             <ol>
                 <li>
                     sprawdzemy jakim jesteśmy userem <span className='important'>cn' UNION SELECT 1, user, 3, 4 from mysql.user-- -</span>
@@ -128,6 +133,8 @@ const MySQL = () => {
             <div className='waring'>
                 <p>Przypomnienie: po takim sprawdzeniu wyrenderuje się strona w stronie, należy wejść w kod źródłowy strony by ją odczytać.</p>
             </div>
+
+            <hr />
 
             <h2>Zapisywanie w plikach</h2>
             <p>Potrzebujemy 3 rzeczy</p>

@@ -70,11 +70,15 @@ const Commends = () => {
                 </tbody>
             </table>
 
+            <hr />
+
             <h2>XSS</h2>
             <p className='important'>{'#"><img src=/ onerror=alert(document.cookie)>'}</p>
 
             <h3>XSStrike</h3>
             <p className='important'>python xsstrike.py -u "http://SERVER_IP:PORT/index.php?task=test" </p>
+
+            <hr />
 
             <h2>WHOIS</h2>
             <h4 className='important'>whois inlanefreight.com</h4>
@@ -94,6 +98,8 @@ const Commends = () => {
                 <li>
                 <span className='important'>Nazwa serwera (Name Servers)</span>: Serwery tłumaczące nazwę domeny na adres IP.</li>
             </ul>
+
+            <hr />
 
             <h2 id="dig">dig (Domain Information Groper)</h2>
             <p>Polecenie dig (Domain Information Groper) to wszechstronne i potężne narzędzie do wysyłania zapytań do serwerów DNS i pobierania różnych typów rekordów DNS. Jego elastyczność oraz szczegółowe i konfigurowalne wydruki sprawiają, że jest to doskonały wybór.</p>
@@ -171,6 +177,8 @@ const Commends = () => {
                 <p>Uwaga: niektóre serwery mogą wykrywać i blokować nadmierną liczbę zapytań DNS. Zachowaj ostrożność i przestrzegaj limitów stawek. Zawsze uzyskaj pozwolenie przed wykonaniem obszernego rozpoznania DNS celu.</p>
             </div>
 
+            <hr />
+
             <h2><Link to='/tools'>dnsenum</Link></h2>
             <p>Kompleksowe narzędzie do wyliczania DNS, które obsługuje ataki słownikowe i brute-force w celu wykrycia subdomen.</p>
             <table>
@@ -188,6 +196,8 @@ const Commends = () => {
                     </tr>
                 </tbody>
             </table>
+
+            <hr />
 
             <h2><Link to='/tools'>gobuster</Link></h2>
             <p>Wielozadaniowe narzędzie często używane do brutalnego wymuszania katalogów/plików, ale także skuteczne do wykrywania hostów wirtualnych.</p>
@@ -211,6 +221,7 @@ const Commends = () => {
                 <p>W nowszych wersjach Gobustera flaga --append-domain jest wymagana w celu dołączenia domeny bazowej do każdego słowa na liście słów podczas wykrywania hosta wirtualnego. Ta flaga zapewnia, że ​​Gobuster poprawnie konstruuje pełne wirtualne nazwy hostów, co jest niezbędne do dokładnego wyliczenia potencjalnych subdomen. W starszych wersjach Gobuster ta funkcjonalność była obsługiwana inaczej i flaga --append-domain nie była konieczna. Użytkownicy starszych wersji mogą uznać tę flagę za niedostępną lub potrzebną, ponieważ narzędzie domyślnie dołączało domenę bazową lub wykorzystywało inny mechanizm generowania hosta wirtualnego.</p>
             </div>
 
+            <hr />
 
             <h2>FFUF - Fuzzing</h2>
             <p>Odkrywanie stron.</p>
@@ -256,6 +267,8 @@ const Commends = () => {
                     </tr>
                 </tbody>
             </table>
+
+            <hr />
 
             <h2>MySQL</h2>
 
@@ -358,9 +371,9 @@ const Commends = () => {
                 </tbody>
             </table>
 
+            <hr />
 
             <h2>SQLMap</h2>
-
             <table>
                 <thead>
                     <tr>
@@ -463,6 +476,8 @@ const Commends = () => {
                     </tr>
                 </tbody>
                 </table>
+
+                
             
         </section>
     )

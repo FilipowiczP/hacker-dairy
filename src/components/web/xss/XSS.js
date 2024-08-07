@@ -31,6 +31,8 @@ const XSS = () => {
                 </tbody>
             </table>
 
+            <hr />
+
             <h2>XSStrike</h2>
             <div className='example_code'>
                 <p>git clone https://github.com/FilipowiczP/XSStrike</p>
@@ -40,8 +42,12 @@ const XSS = () => {
                 <p>python xsstrike.py -u "http://SERVER_IP:PORT/index.php?task=test" </p>
             </div>
 
+            <hr />
+
             <h2><Link to='https://github.com/FilipowiczP/AllPayloadXss/blob/master/README.md#bypass--using-another-character'>All XSS Payloads</Link></h2>
         
+            <hr />
+
             <h2>Phishing XSS</h2>
             <p>Dodajemy w url script który modyfikuje stronę by stworzyć fałszywy formularz</p>
             <div className='example_code'>
@@ -77,6 +83,8 @@ const XSS = () => {
                 <p>{`?>`}</p>
             </div>
 
+            <hr />
+
             <h3>Blind XSS</h3>
             <p>Często pojawia się przy formularzach, które są wysyłane i obsługiwane przez Admina</p>
             <p>W celu wykrycia które pole jest podatne. Możemy do każdego z nich załączyć taki script</p>
@@ -108,6 +116,8 @@ const XSS = () => {
 
             <h4 className='important'>Rezultat:</h4>
             <ExampleFrame screen={blind_xss_example}/>
+
+            <hr />
 
             <h2 className='defense'>Zapobieganie XSS</h2>
             <p>Najważniejszym aspektem zapobiegania podatnościom XSS jest odpowiednie oczyszczanie danych wejściowych i sprawdzanie poprawności zarówno po stronie frontonu, jak i zaplecza. Oprócz tego można zastosować inne środki bezpieczeństwa, aby zapobiec atakom XSS.</p>
