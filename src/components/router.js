@@ -11,7 +11,9 @@ import HTBXSS from './web/xss/HTBXSS';
 import LinuxCommands from './linux/commands/LinuxCommand';
 import CommandInjection from './web/comands-injection/ComandsInjection';
 import FileUpload from './web/file-upload/FileUpload';
-import XXE from './web/xxe/XXE'
+import XXE from './web/xxe/XXE';
+import SSRF from './web/ssrf/SSRF';
+import SSTI from './web/ssti/SSTI';
 
 const Routing = () => {
     return(
@@ -29,6 +31,8 @@ const Routing = () => {
           <Route path="/commands-injection" element={<CommandInjection />} />
           <Route path="/file-upload-attack" element={<FileUpload />} />
           <Route path="/xxe" element={<XXE />} />
+          <Route path="/ssrf" element={<SSRF />} />
+          <Route path="/ssti" element={<SSTI />} />
       </Routes>
     )
 };

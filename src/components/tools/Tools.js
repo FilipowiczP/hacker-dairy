@@ -1,6 +1,8 @@
 import './tools.scss';
 import tool_bashfuscator from '../../assets/tool_bashfuscator.png';
 import tool_dosfuscation from '../../assets/tool_dosfuscation.png';
+import sstimap from '../../assets/sstimap.png';
+import sstimap_functions from '../../assets/sstimap_functions.png';
 import { Link } from 'react-router-dom';
 import ExampleFrame from '../exampleFrame/ExampleFrame';
 
@@ -87,6 +89,24 @@ const Tools = () => {
             <h3>Magic byte (MIME-Type)</h3>
             <Link to='https://en.wikipedia.org/wiki/List_of_file_signatures'>Podpisy plików (Magiczny byte)</Link>
             <Link to='https://opensource.apple.com/source/file/file-23/file/magic/magic.mime'>Magiczny byte</Link>
+
+            <hr />
+
+            <Link to='https://github.com/FilipowiczP/Gopherus'>Gopherus - generate Gopher payload</Link>
+
+            <hr />
+
+            <Link to='https://github.com/FilipowiczP/PayloadsAllTheThings/blob/master/Server%20Side%20Template%20Injection/README.md'>PayloadsAllTheThings - Server Side Template Injection</Link>
+            <Link to='https://github.com/FilipowiczP/SSTImap'>SSTI - automatyczne narzędzie do wykrywania oraz wykorzystywania payload</Link>
+            <div className='waring'>
+                <p>git clone https://github.com/FilipowiczP/SSTImap</p>
+                <p>cd SSTImap</p>
+                <p>pip3 install -r requirements.txt</p>
+                <p>python3 sstimap.py </p>
+                <p>python3 sstimap.py -u http://SERVER_IP/index.php?name=test</p>
+            </div>
+            <ExampleFrame screen={sstimap} />
+
         </section>
     )
 };

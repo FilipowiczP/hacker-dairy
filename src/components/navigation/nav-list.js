@@ -20,8 +20,16 @@ export const navigationList = [
                 path: '/xxe'
             },
             {
-                name: 'Cross-Site Scripting (XSS)',
-                path: '/xss'
+                name: 'Server-Side Request Forgery (SSRF)',
+                path: '/ssrf'
+            },
+            {
+                name: 'Server-Side Request Forgery (SSRF)',
+                path: '/ssrf'
+            },
+            {
+                name: 'Server-side Template Injection (SSTI)',
+                path: '/ssti'
             },
             {
                 name: 'HTB-XSS',

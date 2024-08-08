@@ -154,6 +154,7 @@ div.waring {
 	margin: 24px 0;
 	p {
 		color: map.get($colors,"waring");
+		text-align: left;
 	}
 }
 

