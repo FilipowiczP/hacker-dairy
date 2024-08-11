@@ -16,6 +16,14 @@ export const navigationList = [
                 path: '/web-information-gathering'
             },
             {
+                name: 'Authentication',
+                path: '/authentication'
+            },
+            {
+                name: 'Verb Tampering',
+                path: '/verb-tampering'
+            },
+            {
                 name: 'XML eXternal Entity (XXE)',
                 path: '/xxe'
             },
@@ -26,6 +34,10 @@ export const navigationList = [
             {
                 name: 'Server-Side Request Forgery (SSRF)',
                 path: '/ssrf'
+            },
+            {
+                name: 'Insecure Direct Object References (IDOR)',
+                path: '/idor'
             },
             {
                 name: 'Server-side Template Injection (SSTI)',
@@ -57,6 +69,12 @@ export const navigationList = [
                 name: 'HTB-MySQL',
                 path: '/htb-mysql'
             },
+        ]
+    },
+    {
+        name: 'Brute force',
+        path: '/brute-force',
+        subLinks:[
         ]
     },
     {

@@ -65,6 +65,11 @@ const LinuxCommands = () => {
             <div className='waring'>
                 <p>Uwaga: Jedynym wyjątkiem może być średnik ;, który nie będzie działać, jeśli polecenie zostało wykonane za pomocą wiersza poleceń systemu Windows (CMD), ale nadal będzie działać, jeśli zostanie wykonane za pomocą programu Windows PowerShell.</p>
             </div>
+
+            <div className='waring'>
+                <span>netstat -antp | grep -i list</span>
+                <p>Lista otwartych lokalnie portów</p>
+            </div>
         </section>
     )
 };

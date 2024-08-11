@@ -106,18 +106,24 @@ hr {
 	.tab-#{$i}{
 		padding-left: calc(24px * #{$i});
 	}
-  }
+}
 
+.half{
+	width: 50%;
+}
 
 table{
-	margin: 24px 0;
 	border-collapse: collapse;
 	border: 1px solid map.get($colors,"tableBackground");
 	width: 100%;
+	margin: 32px 0;
 	thead{
 		height: 40px;
+		border: 1px solid map.get($colors,"link");
+		
 		tr{
 			th{
+				border: 1px solid map.get($colors,"link");
 				font-weight: 500;
 				color: map.get($colors,"link");
 				text-align: center; 
@@ -126,6 +132,7 @@ table{
 		}
 	}
 	tbody{
+		border: 1px solid map.get($colors,"link");
 		tr{
 			td:first-child{
 				font-weight: 500;
@@ -133,6 +140,8 @@ table{
 			td{
 				padding: 24px 18px;
 				line-height: 1.4;
+				border-left: 1px solid map.get($colors,"link");
+				border-right: 1px solid map.get($colors,"link");
 				a{
 					text-decoration: underline;
 					font-weight: 500;

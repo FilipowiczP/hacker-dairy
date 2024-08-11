@@ -14,6 +14,10 @@ import FileUpload from './web/file-upload/FileUpload';
 import XXE from './web/xxe/XXE';
 import SSRF from './web/ssrf/SSRF';
 import SSTI from './web/ssti/SSTI';
+import BruteForce from './bruteForce/BruteForce';
+import Authentication from './web/authentication/Authentication';
+import VerbTampering from './web/verb-tempering/VerbTempering';
+import IDOR from './web/idor/IDOR';
 
 const Routing = () => {
     return(
@@ -33,6 +37,11 @@ const Routing = () => {
           <Route path="/xxe" element={<XXE />} />
           <Route path="/ssrf" element={<SSRF />} />
           <Route path="/ssti" element={<SSTI />} />
+          <Route path="/brute-force" element={<BruteForce />} />
+          <Route path="/authentication" element={<Authentication />} />
+          <Route path="/verb-tampering" element={<VerbTampering />} />
+          <Route path="/idor" element={<IDOR />} />
+
       </Routes>
     )
 };
