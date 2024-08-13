@@ -24,6 +24,10 @@ export const navigationList = [
                 path: '/verb-tampering'
             },
             {
+                name: 'Cross-Site Scripting (XSS)',
+                path: '/xss'
+            },
+            {
                 name: 'XML eXternal Entity (XXE)',
                 path: '/xxe'
             },

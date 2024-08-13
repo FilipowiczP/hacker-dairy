@@ -95,6 +95,10 @@ const IDOR = () =>{
             <p>Aplikacja zawiera inną lukę którą możemy wykorzystać. Zmieniając id użytkownika w linku, możemy otrzymać dane użytkownika w tym role</p>
             <p>Możemy sprawdzić wszystkicyh użytkowników i poszukać z uprawnienami admin, by sobie ją przypisać w edycji profilu</p>
         
+
+            <hr />
+            <h2 className='defence'>Zapobieganie IDOR</h2>
+            
         </section>
     )
 }
