@@ -18,6 +18,8 @@ import BruteForce from './bruteForce/BruteForce';
 import Authentication from './web/authentication/Authentication';
 import VerbTampering from './web/verb-tempering/VerbTempering';
 import IDOR from './web/idor/IDOR';
+import MachinesLab from './machines-lab/MachinesLab';
+import BoardLight from './machines-lab/htb/BoardLight';
 
 const Routing = () => {
     return(
@@ -41,6 +43,8 @@ const Routing = () => {
           <Route path="/authentication" element={<Authentication />} />
           <Route path="/verb-tampering" element={<VerbTampering />} />
           <Route path="/idor" element={<IDOR />} />
+          <Route path="/machines-lab" element={<MachinesLab />} />
+          <Route path="/machines-lab/board-light" element={<BoardLight />} />
 
       </Routes>
     )

@@ -98,5 +98,11 @@ export const navigationList = [
         path: '/commends',
         subLinks:[
         ]
+    },
+    {
+        name: 'Machines Lab',
+        path: '/machines-lab',
+        subLinks:[
+        ]
     }
 ]

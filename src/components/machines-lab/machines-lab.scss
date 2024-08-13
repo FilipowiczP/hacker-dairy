@@ -1,0 +1,12 @@
+.labs {
+    display: flex;
+    flex-wrap: wrap;
+    a {
+        display: flex;
+        flex-wrap: wrap;
+        width: 200px;
+        height: 200px;
+        justify-content: center;
+        align-items: center;
+    }
+}
