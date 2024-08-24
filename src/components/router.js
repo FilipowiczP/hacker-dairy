@@ -20,6 +20,8 @@ import VerbTampering from './web/verb-tempering/VerbTempering';
 import IDOR from './web/idor/IDOR';
 import MachinesLab from './machines-lab/MachinesLab';
 import BoardLight from './machines-lab/htb/BoardLight';
+import FileInclusion from './web/file-inclusion/FileInclusion';
+import CSRF from './web/csrf/CSRF';
 
 const Routing = () => {
     return(
@@ -38,6 +40,7 @@ const Routing = () => {
           <Route path="/file-upload-attack" element={<FileUpload />} />
           <Route path="/xxe" element={<XXE />} />
           <Route path="/ssrf" element={<SSRF />} />
+          <Route path="/csrf" element={<CSRF />} />
           <Route path="/ssti" element={<SSTI />} />
           <Route path="/brute-force" element={<BruteForce />} />
           <Route path="/authentication" element={<Authentication />} />
@@ -45,6 +48,7 @@ const Routing = () => {
           <Route path="/idor" element={<IDOR />} />
           <Route path="/machines-lab" element={<MachinesLab />} />
           <Route path="/machines-lab/board-light" element={<BoardLight />} />
+          <Route path="/file-inclusion" element={<FileInclusion />} />
 
       </Routes>
     )

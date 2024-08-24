@@ -32,8 +32,8 @@ export const navigationList = [
                 path: '/xxe'
             },
             {
-                name: 'Server-Side Request Forgery (SSRF)',
-                path: '/ssrf'
+                name: 'Cross-Site Request Forgery (CSRF)',
+                path: '/csrf'
             },
             {
                 name: 'Server-Side Request Forgery (SSRF)',
@@ -54,6 +54,10 @@ export const navigationList = [
             {
                 name: 'Commands Injection',
                 path: '/commands-injection'
+            },
+            {
+                name: 'File Inclusion',
+                path: '/file-inclusion'
             },
             {
                 name: 'File Upload Attack',
