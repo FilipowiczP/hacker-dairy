@@ -4,7 +4,9 @@ import './machines-lab.scss';
 const MachinesLab = () =>{
     return(
         <section className="labs">
+            <h1>HTB - Labs</h1>
             <Link to='board-light'>Board Light</Link>
+            <Link to='see'>See</Link>
         </section>
     )
 }

@@ -271,6 +271,10 @@ const Commends = () => {
                         <td>Enumeracja portów SSRF</td>
                         <td>ffuf -w ./ports.txt -u http://SERVER_IP/index.php -X POST -H "Content-Type: application/x-www-form-urlencoded" -d "dateserver=http://SERVER_IP:FUZZ/&date=2024-01-01" -fr "Failed to connect to"</td>
                     </tr>
+                    <tr>
+                        <td>Enumeracja LFI Api</td>
+                        <td>ffuf -w /SecLists/Discovery/Web-Content/common-api-endpoints-mazen160.txt:FUZZ -u 'http://{`<TARGET IP>`}:3000/api/FUZZ'"</td>
+                    </tr>
                 </tbody>
             </table>
 

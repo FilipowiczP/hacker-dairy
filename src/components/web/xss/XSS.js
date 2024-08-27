@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import blind_xss_example from '../../../assets/blind_xss_example.png';
 import xss_in_file from '../../../assets/xss_in_file.png';
 import xss_in_file_xml from '../../../assets/xss_in_file_xml.png';
+import xss_in_api from '../../../assets/xss_in_api.png';
 import ExampleFrame from '../../exampleFrame/ExampleFrame';
 
 const XSS = () => {
@@ -191,6 +192,12 @@ const XSS = () => {
                 <li className='defense'>Używanie opcji Content-Security-Policy, takich jak script-src „self”, które zezwalają tylko na skrypty hostowane lokalnie.</li>
                 <li className='defense'>Używanie flag plików cookie HttpOnly i Secure, aby uniemożliwić JavaScriptowi odczytywanie plików cookie i przesyłać je tylko przez HTTPS.</li>
             </ul>
+
+            <hr />
+
+            <h2>XSS w api</h2>
+            <p>W przypadku znalezienia linku api (<span className='important'>http://{`<TARGET IP>`}:3000/api/download/</span>), możemy zastosować <span className='important'>{`%3Cscript%3Ealert%28document.domain%29%3C%2Fscript%3E`}</span></p>
+            <ExampleFrame screen={xss_in_api} />
         </section>
     )
 };

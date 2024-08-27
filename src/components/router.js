@@ -22,6 +22,9 @@ import MachinesLab from './machines-lab/MachinesLab';
 import BoardLight from './machines-lab/htb/BoardLight';
 import FileInclusion from './web/file-inclusion/FileInclusion';
 import CSRF from './web/csrf/CSRF';
+import WebServicesApiAttack from './web/web-services-api-attacks/WebServicesApiAttack';
+import WordPress from './web/word-press/WordPress';
+import See from './machines-lab/htb/See';
 
 const Routing = () => {
     return(
@@ -48,7 +51,10 @@ const Routing = () => {
           <Route path="/idor" element={<IDOR />} />
           <Route path="/machines-lab" element={<MachinesLab />} />
           <Route path="/machines-lab/board-light" element={<BoardLight />} />
+          <Route path="/machines-lab/see" element={<See />} />
           <Route path="/file-inclusion" element={<FileInclusion />} />
+          <Route path="/web-services-api-attack" element={<WebServicesApiAttack />} />
+          <Route path="/word-press" element={<WordPress />} />
 
       </Routes>
     )

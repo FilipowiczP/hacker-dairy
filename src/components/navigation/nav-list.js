@@ -16,6 +16,10 @@ export const navigationList = [
                 path: '/web-information-gathering'
             },
             {
+                name: 'Web Services Api Attack',
+                path: '/web-services-api-attack'
+            },
+            {
                 name: 'Authentication',
                 path: '/authentication'
             },
@@ -48,10 +52,6 @@ export const navigationList = [
                 path: '/ssti'
             },
             {
-                name: 'HTB-XSS',
-                path: '/htb-xss'
-            },
-            {
                 name: 'Commands Injection',
                 path: '/commands-injection'
             },
@@ -63,6 +63,14 @@ export const navigationList = [
                 name: 'File Upload Attack',
                 path: '/file-upload-attack'
             },
+            {
+                name: 'WordPress',
+                path: '/word-press'
+            },
+            {
+                name: 'HTB-XSS',
+                path: '/htb-xss'
+            }
         ]
     },
     {
