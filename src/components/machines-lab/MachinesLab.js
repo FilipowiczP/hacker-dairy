@@ -7,6 +7,7 @@ const MachinesLab = () =>{
             <h1>HTB - Labs</h1>
             <Link to='board-light'>Board Light</Link>
             <Link to='see'>See</Link>
+            <Link to='permx'>PermX</Link>
         </section>
     )
 }

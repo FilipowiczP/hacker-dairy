@@ -514,6 +514,260 @@ const Commends = () => {
                 </tbody>
             </table>
             <ExampleFrame screen={sstimap_functions} />
+
+            <hr />
+            <h2>Nmap</h2>
+
+            <table class="table table-striped text-left">
+                <thead>
+                    <tr>
+                        <th><strong>Nmap Opcja</strong></th>
+                        <th><strong>Opis</strong></th>
+                        <th><strong>Przykład</strong></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code>-iL</code></td>
+                        <td>Wyłącza Ip z pliku</td>
+                        <td>nmap -sn -oA tnet -iL hosts.lst</td>
+                    </tr>
+                    <tr>
+                        <td><code>-sn</code></td>
+                        <td>Wyłącza skanowanie portów</td>
+                        <td>nmap 10.129.2.0/24 -sn -oA tnet | grep for | cut -d" " -f5</td>
+                    </tr>
+                    <tr>
+                        <td><code>-Pn</code></td>
+                        <td>Wyłącza żądania echa ICMP</td>
+                        <td>nmap 10.129.2.28 -p 139 --packet-trace -n --disable-arp-ping -Pn</td>
+                    </tr>
+                    <tr>
+                        <td><code>-n</code></td>
+                        <td>Wyłącza rozpoznawanie DNS</td>
+                        <td>nmap 10.129.2.28 -p 139 --packet-trace -n --disable-arp-ping -Pn</td>
+                    </tr>
+                    <tr>
+                        <td><code>-PE</code></td>
+                        <td>Wykonuje skanowanie ping przy użyciu żądań echa ICMP względem celu.</td>
+                        <td>nmap 10.129.2.18 -sn -oA host -PE --packet-trace</td>
+                    </tr>
+                    <tr>
+                        <td><code>--packet-trace</code></td>
+                        <td>Pokazuje wszystkie wysłane i odebrane pakiety.</td>
+                        <td>nmap 10.129.2.18 -sn -oA host -PE --packet-trace</td>
+                    </tr>
+                    <tr>
+                        <td><code>--reason</code></td>
+                        <td>Wyświetla przyczynę określonego wyniku.</td>
+                        <td>nmap 10.129.2.18 -sn -oA host -PE --reason</td>
+                    </tr>
+                    <tr>
+                        <td><code>--disable-arp-ping</code></td>
+                        <td>Wyłącza żądania ping ARP.</td>
+                        <td>nmap 10.129.2.18 -sn -oA host -PE --packet-trace --disable-arp-ping </td>
+                    </tr>
+                    <tr>
+                        <td><code>--top-ports=&lt;num&gt;</code></td>
+                        <td>Skanuje określone główne porty, które zostały zdefiniowane jako najczęściej.</td>
+                        <td>nmap 10.129.2.28 --top-ports=10</td>
+                    </tr>
+                    <tr>
+                        <td><code>-p-</code></td>
+                        <td>Skanuje wszystkie porty.</td>
+                        <td>nmap 10.129.2.28 -p- -oA target</td>
+                    </tr>
+                    <tr>
+                        <td><code>-p22-110</code></td>
+                        <td>Skanuje wszystkie porty między 22 a 110.</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td><code>-p22,25</code></td>
+                        <td>Skanuje tylko wyznaczone porty 22 i 25.</td>
+                        <td>nmap 10.129.2.28 -p22,25 --packet-trace -Pn -n --disable-arp-ping</td>
+                    </tr>
+                    <tr>
+                        <td><code>-F</code></td>
+                        <td>Skanije najczęstszych 100 portów.</td>
+                        <td>nmap 10.129.2.0/24 -F</td>
+                    </tr>
+                    <tr>
+                        <td><code>-sS</code></td>
+                        <td>Wykonuje skanowanie SYN protokołu TCP.</td>
+                        <td>nmap 10.129.2.28 -p 21,22,25 -sS -Pn -n --disable-arp-ping --packet-trace</td>
+                    </tr>
+                    <tr>
+                        <td><code>-sA</code></td>
+                        <td>Wykonuje skanowanie ACK protokołu TCP.</td>
+                        <td>nmap 10.129.2.28 -p 21,22,25 -sA -Pn -n --disable-arp-ping --packet-trace</td>
+                    </tr>
+                    <tr>
+                        <td><code>-sU</code></td>
+                        <td>Wykonuje skanowanie UDP.</td>
+                        <td>nmap 10.129.2.28 -F -sU</td>
+                    </tr>
+                    <tr>
+                        <td><code>-sV</code></td>
+                        <td>Skanuje wykryte usługi w poszukiwaniu ich wersji.</td>
+                        <td>nmap 10.129.2.28 -Pn -n --disable-arp-ping --packet-trace -p 445 --reason -sV</td>
+                    </tr>
+                    <tr>
+                        <td><code>-sC</code></td>
+                        <td>Wykonaj skanowanie skryptów ze skryptami sklasyfikowanymi jako „domyślne”</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td><code>--script &lt;script&gt;</code></td>
+                        <td>Wykonuje skanowanie skryptów przy użyciu określonych skryptów.</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td><code>--script banner,smtp-commands</code></td>
+                        <td>Używa określonych skryptów NSE.</td>
+                        <td>nmap 10.129.2.28 -p 25 --script banner,smtp-commands</td>
+                    </tr>
+                    <tr>
+                        <td><code>--script vuln</code></td>
+                        <td>Używa wszystkich powiązanych skryptów z określonej kategorii.</td>
+                        <td>nmap 10.129.2.28 -p 80 -sV --script vuln </td>
+                    </tr>
+                    <tr>
+                        <td><code>-O</code></td>
+                        <td>Wykonuje skanowanie w celu wykrycia systemu operacyjnego w celu określenia systemu operacyjnego docelowego</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td><code>-A</code></td>
+                        <td>Wykonuje wykrywanie systemu operacyjnego, wykrywanie usług i skanowanie trastraute.</td>
+                        <td>nmap 10.129.2.28 -p 80 -A</td>
+                    </tr>
+                    <tr>
+                        <td><code>-D RND:5</code></td>
+                        <td>Ustawia liczbę losowych wabików, które zostaną użyte do przeskanowania celu.</td>
+                        <td>nmap 10.129.2.28 -p 80 -sS -Pn -n --disable-arp-ping --packet-trace -D RND:5</td>
+                    </tr>
+                    <tr>
+                        <td><code>-e</code></td>
+                        <td>Określa interfejs sieciowy używany do skanowania.</td>
+                        <td>nmap 10.129.2.28 -n -Pn -p 445 -O -S 10.129.2.200 -e tun0</td>
+                    </tr>
+                    <tr>
+                        <td><code>-S 10.10.10.200</code></td>
+                        <td>Określa źródłowy adres IP dla skanowania.</td>
+                        <td>nmap 10.129.2.28 -n -Pn -p 445 -O -S 10.129.2.200 -e tun0</td>
+                    </tr>
+                    <tr>
+                        <td><code>-g</code></td>
+                        <td>Określa port źródłowy skanowania.</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td><code>--dns-server &lt;ns&gt;</code></td>
+                        <td>Rozpoznawanie DNS jest wykonywane przy użyciu określonego serwera nazw.</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td><code>--max-retries &lt;num&gt;</code></td>
+                        <td>Ustawia liczbę ponownych prób skanowania określonych portów.</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td><code>--stats-every=5s</code></td>
+                        <td>Wyświetla status skanowania co 5 sekund.</td>
+                        <td>nmap 10.129.2.28 -p- -sV --stats-every=5s</td>
+                    </tr>
+                    <tr>
+                        <td><code>-v/-vv</code></td>
+                        <td>Wyświetla szczegółowe dane wyjściowe podczas skanowania.</td>
+                        <td>nmap 10.129.2.28 -p- -sV -v </td>
+                    </tr>
+                    <tr>
+                        <td><code>--initial-rtt-timeout 50ms</code></td>
+                        <td>Ustawia określoną wartość czasu jako początkowy limit czasu RTT.</td>
+                        <td>nmap 10.129.2.0/24 -F --initial-rtt-timeout 50ms --max-rtt-timeout 100ms</td>
+                    </tr>
+                    <tr>
+                        <td><code>--max-rtt-timeout 100ms</code></td>
+                        <td>Ustawia określoną wartość czasu jako maksymalny limit czasu RTT.</td>
+                        <td>nmap 10.129.2.0/24 -F --initial-rtt-timeout 50ms --max-rtt-timeout 100ms</td>
+                    </tr>
+                    <tr>
+                        <td><code>--min-rate 300</code></td>
+                        <td>Ustawia liczbę pakietów, które zostaną wysłane jednocześnie.</td>
+                        <td>nmap 10.129.2.0/24 -F -oN tnet.minrate300 --min-rate 300</td>
+                    </tr>
+                    <tr>
+                        <td><code>-T &lt;0-5&gt;</code></td>
+                        <td>Określa konkretny szablon chronometrażu/ Szybkość skanowania (Im szybsze tym łatwiej zostać złapanym).</td>
+                        <td>nmap 10.129.2.0/24 -F -oN tnet.T5 -T 5</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h2>Opcje Wyjścia</h2>
+
+            <table class="table table-striped text-left">
+                <thead>
+                    <tr>
+                        <th><strong>Nmap Opcja</strong></th>
+                        <th><strong>Opis</strong></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code>-oA filename</code></td>
+                        <td>Przechowuje wyniki we wszystkich dostępnych formatach, zaczynając od nazwy „filename”.</td>
+                    </tr>
+                    <tr>
+                        <td><code>-oN filename</code></td>
+                        <td>Przechowuje wyniki w normalnym formacie z nazwą „filename”.</td>
+                    </tr>
+                    <tr>
+                        <td><code>-oG filename</code></td>
+                        <td>Przechowuje wyniki w formacie „grepable” z nazwą „filename”.</td>
+                    </tr>
+                    <tr>
+                        <td><code>-oX filename</code></td>
+                        <td>Przechowuje wyniki w formacie XML z nazwą „filename”.</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th><strong>Status</strong></th>
+                        <th><strong>Opis</strong></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code>open</code></td>
+                        <td>Oznacza to, że połączenie ze skanowanym portem zostało nawiązane. Połączenia te mogą być połączeniami TCP, datagramami UDP, a także powiązaniami SCTP.</td>
+                    </tr>
+                    <tr>
+                        <td><code>closed</code></td>
+                        <td>Gdy port jest wyświetlany jako zamknięty, protokół TCP wskazuje, że otrzymany przez nas pakiet zawiera flagę RST. Tę metodę skanowania można również wykorzystać do ustalenia, czy nasz cel żyje, czy nie.</td>
+                    </tr>
+                    <tr>
+                        <td><code>filtered</code></td>
+                        <td>Nmap nie może poprawnie określić, czy przeskanowany port jest otwarty, czy zamknięty, ponieważ albo od celu nie została zwrócona żadna odpowiedź dla portu, albo otrzymaliśmy od celu kod błędu.</td>
+                    </tr>
+                    <tr>
+                        <td><code>unfiltered</code></td>
+                        <td>Ten stan portu występuje tylko podczas skanowania TCP-ACK i oznacza, że ​​port jest dostępny, ale nie można określić, czy jest otwarty, czy zamknięty.</td>
+                    </tr>
+                    <tr>
+                        <td><code>open|filtered</code></td>
+                        <td>Jeśli nie otrzymamy odpowiedzi dla konkretnego portu, Nmap ustawi go na ten stan. Oznacza to, że zapora sieciowa lub filtr pakietów mogą chronić port.</td>
+                    </tr>
+                    <tr>
+                        <td><code>closed|filtered</code></td>
+                        <td>Ten stan występuje tylko podczas skanowań bezczynności identyfikatora IP i wskazuje, że nie można było określić, czy skanowany port jest zamknięty, czy filtrowany przez zaporę ogniową.</td>
+                    </tr>
+                </tbody>
+            </table>
             
         </section>
     )
