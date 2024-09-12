@@ -82,9 +82,48 @@ export const navigationList = [
                 path: '/mysql'
             },
             {
+                name: 'MsSQL',
+                path: '/mssql'
+            },
+            {
                 name: 'HTB-MySQL',
                 path: '/htb-mysql'
             },
+        ]
+    },
+    {
+        name: 'Services',
+        path: '/',
+        subLinks:[
+            {
+                name: 'FTP',
+                path: '/ftp'
+            },
+            {
+                name: 'SMB',
+                path: '/smb'
+            },
+            {
+                name: 'NFS',
+                path: '/nfs'
+            },
+            {
+                name: 'DNS',
+                path: '/dns'
+            },
+            {
+                name: 'SMTP',
+                path: '/smtp'
+            },
+            {
+                name: 'IMAP/ POP3',
+                path: '/imap-pop3'
+            },
+            {
+                name: 'RDP',
+                path: '/rdp'
+            },
+
         ]
     },
     {

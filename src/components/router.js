@@ -26,6 +26,14 @@ import WebServicesApiAttack from './web/web-services-api-attacks/WebServicesApiA
 import WordPress from './web/word-press/WordPress';
 import See from './machines-lab/htb/See';
 import PermX from './machines-lab/htb/PermX';
+import FTP from './ftp/FTP';
+import SMB from './smb/SMB';
+import NFS from './nfs/NFS';
+import DNS from './dns/DNS';
+import SMTP from './smtp/SMTP';
+import ImapPop3 from './imap-pop3/IMAP-POP3';
+import MsSql from './database/mssql/MsSql';
+import RDP from './rdp/RDP';
 
 const Routing = () => {
     return(
@@ -57,6 +65,14 @@ const Routing = () => {
           <Route path="/file-inclusion" element={<FileInclusion />} />
           <Route path="/web-services-api-attack" element={<WebServicesApiAttack />} />
           <Route path="/word-press" element={<WordPress />} />
+          <Route path="/ftp" element={<FTP />} />
+          <Route path="/smb" element={<SMB />} />
+          <Route path="/nfs" element={<NFS />} />
+          <Route path="/dns" element={<DNS />} />
+          <Route path="/smtp" element={<SMTP />} />
+          <Route path="/imap-pop3" element={<ImapPop3 />} />
+          <Route path="/mssql" element={<MsSql />} />
+          <Route path="/rdp" element={<RDP />} />
 
       </Routes>
     )

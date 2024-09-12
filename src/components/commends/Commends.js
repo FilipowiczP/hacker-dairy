@@ -196,6 +196,9 @@ const Commends = () => {
                     <tr>
                     <td>dnsenum --enum inlanefreight.com -f /usr/share/seclists/Discovery/DNS/subdomains-top1million-110000.txt -r</td>
                     </tr>
+                    <tr>
+                    <td>dnsenum --dnsserver 10.129.14.128 --enum -p 0 -s 0 -o subdomains.txt -f /opt/useful/SecLists/Discovery/DNS/subdomains-top1million-110000.txt inlanefreight.htb</td>
+                    </tr>
                 </tbody>
             </table>
 
@@ -518,7 +521,7 @@ const Commends = () => {
             <hr />
             <h2>Nmap</h2>
 
-            <table class="table table-striped text-left">
+            <table>
                 <thead>
                     <tr>
                         <th><strong>Nmap Opcja</strong></th>
@@ -701,6 +704,111 @@ const Commends = () => {
                         <td><code>-T &lt;0-5&gt;</code></td>
                         <td>Określa konkretny szablon chronometrażu/ Szybkość skanowania (Im szybsze tym łatwiej zostać złapanym).</td>
                         <td>nmap 10.129.2.0/24 -F -oN tnet.T5 -T 5</td>
+                    </tr>
+                    <tr>
+                        <td>--script-updatedb</td>
+                        <td>Aktualizacja skryptów nmap</td>
+                        <td>sudo nmap --script-updatedb</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>FTP</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>FTP - skrypty</td>
+                        <td>find / -type f -name ftp* 2{`>`}/dev/null | grep scripts</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>SMB</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>SMB - porty</td>
+                        <td>nmap 10.129.14.128 -sV -sC -p139,445</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>NFS</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>NFS - porty</td>
+                        <td>nmap 10.129.14.128 -p111,2049 -sV -sC</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>NFS - script</td>
+                        <td>nmap --script nfs* 10.129.14.128 -sV -p111,2049</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>SMTP</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>SMTP - script</td>
+                        <td>nmap 10.129.14.128 -p25 --script smtp-open-relay -v</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>IMAP/ POP3</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>IMAP/ POP3 - footprinting</td>
+                        <td>nmap 10.129.14.128 -sV -p110,143,993,995 -sC</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>MySql</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>MySql - scripts</td>
+                        <td>nmap 10.129.14.128 -sV -sC -p3306 --script mysql*</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>MSSQL</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>MSSQL - scripts</td>
+                        <td>nmap --script ms-sql-info,ms-sql-empty-password,ms-sql-xp-cmdshell,ms-sql-config,ms-sql-ntlm-info,ms-sql-tables,ms-sql-hasdbaccess,ms-sql-dac,ms-sql-dump-hashes --script-args mssql.instance-port=1433,mssql.username=sa,mssql.password=,mssql.instance-name=MSSQLSERVER -sV -p 1433 10.129.201.248</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>MSSQL - metasploit</td>
+                        <td>scanner/mssql/mssql_ping</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>RDP</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>RDP - script</td>
+                        <td>nmap -sV -sC 10.129.201.248 -p3389 --script rdp*</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>WinRM</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>WinRM - footprinting</td>
+                        <td>nmap -sV -sC 10.129.201.248 -p5985,5986 --disable-arp-ping -n</td>
+                        <td></td>
                     </tr>
                 </tbody>
             </table>

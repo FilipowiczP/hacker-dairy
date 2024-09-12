@@ -107,6 +107,16 @@ const Tools = () => {
             </div>
             <ExampleFrame screen={sstimap} />
 
+            <hr />
+            <Link to='https://github.com/FilipowiczP/enum4linux-ng'>Enum4Linux</Link>
+            <div className='waring'>
+                <p>git clone https://github.com/FilipowiczP/enum4linux-ng</p>
+                <p>cd enum4linux-ng</p>
+                <p>pip3 install -r requirements.txt</p>
+                <p>./enum4linux-ng.py 10.129.14.128 -A </p>
+ 
+            </div>
+
         </section>
     )
 };
