@@ -127,8 +127,34 @@ export const navigationList = [
         ]
     },
     {
+        name: 'File transfer',
+        path: '/file-transfer',
+        subLinks:[
+            {
+                name: 'Windows',
+                path: '/file-transfer-windows'
+            },
+            {
+                name: 'Linux',
+                path: '/file-transfer-linux'
+            },
+        ]
+    },
+    {
+        name: 'Shell',
+        path: '/shell',
+        subLinks:[
+        ]
+    },
+    {
         name: 'Brute force',
         path: '/brute-force',
+        subLinks:[
+        ]
+    },
+    {
+        name: 'Password Attack',
+        path: '/password',
         subLinks:[
         ]
     },

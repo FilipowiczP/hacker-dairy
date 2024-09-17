@@ -70,6 +70,17 @@ const LinuxCommands = () => {
                 <span>netstat -antp | grep -i list</span>
                 <p>Lista otwartych lokalnie portów</p>
             </div>
+
+            <hr />
+            <h2>Credential Linux</h2>
+            <div className='waring'>
+                <p>for l in $(echo ".conf .config .cnf");do echo -e "\nFile extension: " $l; find / -name *$l 2{`>`}/dev/null | grep -v "lib\|fonts\|share\|core" ;done</p>
+                <p>for i in $(find / -name *.cnf 2{`>`}/dev/null | grep -v "doc\|lib");do echo -e "\nFile: " $i; grep "user\|password\|pass" $i 2{`>`}/dev/null | grep -v "\#";done</p>
+                <p>for l in $(echo ".sql .db .*db .db*");do echo -e "\nDB File extension: " $l; find / -name *$l 2{`>`}/dev/null | grep -v "doc\|lib\|headers\|share\|man";done</p>
+                <p>find /home/* -type f -name "*.txt" -o ! -name "*.*"</p>
+                <p>for l in $(echo ".py .pyc .pl .go .jar .c .sh");do echo -e "\nFile extension: " $l; find / -name *$l 2{`>`}/dev/null | grep -v "doc\|lib\|headers\|share";done</p>
+                <p>for i in $(ls /var/log/* 2{`>`}/dev/null);do GREP=$(grep "accepted\|session opened\|session closed\|failure\|failed\|ssh\|password changed\|new user\|delete user\|sudo\|COMMAND\=\|logs" $i 2{`>`}/dev/null); if [[ $GREP ]];then echo -e "\n#### Log file: " $i; grep "accepted\|session opened\|session closed\|failure\|failed\|ssh\|password changed\|new user\|delete user\|sudo\|COMMAND\=\|logs" $i 2{`>`}/dev/null;fi;done</p>
+            </div>
         </section>
     )
 };

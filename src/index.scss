@@ -62,7 +62,7 @@ a {
 }
 
 .normal{
-	color: map.get($colors,"font");
+	color: map.get($colors,"font") !important;
 }
 
 

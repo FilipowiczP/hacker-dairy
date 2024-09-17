@@ -34,6 +34,10 @@ import SMTP from './smtp/SMTP';
 import ImapPop3 from './imap-pop3/IMAP-POP3';
 import MsSql from './database/mssql/MsSql';
 import RDP from './rdp/RDP';
+import FileTransferWindows from './file-transfer/FileTransferWindows';
+import FileTransferLinux from './file-transfer/FileTransferLinux';
+import Shell from './shell/Shell';
+import Password from './password/Password';
 
 const Routing = () => {
     return(
@@ -73,6 +77,11 @@ const Routing = () => {
           <Route path="/imap-pop3" element={<ImapPop3 />} />
           <Route path="/mssql" element={<MsSql />} />
           <Route path="/rdp" element={<RDP />} />
+          <Route path="/file-transfer-windows" element={<FileTransferWindows />} />
+          <Route path="/file-transfer-linux" element={<FileTransferLinux />} />
+          <Route path="/shell" element={<Shell />} />
+          <Route path="/password" element={<Password />} />
+
 
       </Routes>
     )

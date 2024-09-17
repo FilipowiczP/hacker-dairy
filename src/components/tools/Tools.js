@@ -3,8 +3,10 @@ import tool_bashfuscator from '../../assets/tool_bashfuscator.png';
 import tool_dosfuscation from '../../assets/tool_dosfuscation.png';
 import sstimap from '../../assets/sstimap.png';
 import sstimap_functions from '../../assets/sstimap_functions.png';
+import password_SAM from '../../assets/password_SAM.png';
 import { Link } from 'react-router-dom';
 import ExampleFrame from '../exampleFrame/ExampleFrame';
+import shell from '../../assets/shell.png';
 
 const Tools = () => {
 
@@ -116,6 +118,19 @@ const Tools = () => {
                 <p>./enum4linux-ng.py 10.129.14.128 -A </p>
  
             </div>
+
+            <hr/>
+            <Link to='https://github.com/FilipowiczP/web-shells'>Web Shells</Link>
+            <Link to='https://github.com/FilipowiczP/nishang/tree/master/Antak-WebShell'>Web Terminal</Link>
+            <ExampleFrame screen={shell} />
+
+            <hr />
+            <Link to='https://github.com/FilipowiczP/impacket/blob/master/examples/secretsdump.py'>secretsdump</Link>
+            <ExampleFrame screen={password_SAM} />
+
+            <Link to='https://github.com/FilipowiczP/pypykatz'>Pypykatz</Link>
+            <Link to='https://github.com/AlessandroZ/LaZagne/releases/'>Lazagne Windows</Link>
+            <Link to='https://github.com/AlessandroZ/LaZagne'>Lazagne Linux</Link>
 
         </section>
     )
