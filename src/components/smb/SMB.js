@@ -1,4 +1,5 @@
 import smb from '../../assets/smb.png';
+import smb_impacket from '../../assets/smb_impacket.png';
 import ExampleFrame from '../exampleFrame/ExampleFrame';
 
 const SMB = () => {
@@ -177,6 +178,7 @@ const SMB = () => {
             <div className='waring'>
                 <p>crackmapexec smb 10.129.14.128 --shares -u '' -p ''</p>
             </div>
+
         </section>
     )
 }

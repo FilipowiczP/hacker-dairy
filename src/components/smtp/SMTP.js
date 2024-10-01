@@ -1,5 +1,6 @@
 import smtp from '../../assets/smtp.png';
 import ExampleFrame from '../exampleFrame/ExampleFrame';
+import { Link } from 'react-router-dom';
 
 const SMTP = () =>{
     return(
@@ -69,6 +70,15 @@ const SMTP = () =>{
             <div className='waring'>
                 <p><span className='important'>połączenie z pocztą</span></p>
                 <p>telnet 10.129.14.128 25</p>
+            </div>
+
+            <hr />
+            <h2>Smtp user enum </h2>
+
+
+            <Link to='https://github.com/FilipowiczP/smtp-user-enum'>Smtp user enum</Link>
+            <div className='waring'>
+                <p>smtp-user-enum -M RCPT -U userlist.txt -D inlanefreight.htb -t 10.129.203.7</p>
             </div>
 
         </section>

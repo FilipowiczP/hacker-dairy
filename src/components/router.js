@@ -38,6 +38,10 @@ import FileTransferWindows from './file-transfer/FileTransferWindows';
 import FileTransferLinux from './file-transfer/FileTransferLinux';
 import Shell from './shell/Shell';
 import Password from './password/Password';
+import PortForwarding from './pivoting-tunneling-port-forward/PortForwarding';
+import Tunneling from './pivoting-tunneling-port-forward/Tunneling';
+import ActiveDirectoryCommands from './active-directory/ActiveDirectoryCommands';
+import AD from './active-directory/AD';
 
 const Routing = () => {
     return(
@@ -81,7 +85,10 @@ const Routing = () => {
           <Route path="/file-transfer-linux" element={<FileTransferLinux />} />
           <Route path="/shell" element={<Shell />} />
           <Route path="/password" element={<Password />} />
-
+          <Route path="/port-forwarding" element={<PortForwarding />} />
+          <Route path="/tunneling" element={<Tunneling />} />
+          <Route path="/active-directory-commnads" element={<ActiveDirectoryCommands />} />
+          <Route path="/active-directory" element={<AD />} />
 
       </Routes>
     )

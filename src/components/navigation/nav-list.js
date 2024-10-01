@@ -159,6 +159,34 @@ export const navigationList = [
         ]
     },
     {
+        name: 'Pivoting, Tunneling, and Port Forwarding',
+        path: '/',
+        subLinks:[
+            {
+                name: 'Port Forwarding',
+                path: '/port-forwarding'
+            },
+            {
+                name: 'Tunneling',
+                path: '/tunneling'
+            },
+        ]
+    },
+    {
+        name: 'Active Directory',
+        path: '/',
+        subLinks:[
+            {
+                name: 'AD',
+                path: '/active-directory'
+            },
+            {
+                name: 'Komendy',
+                path: '/active-directory-commnads'
+            },
+        ]
+    },
+    {
         name: 'Tools',
         path: '/tools',
         subLinks:[
