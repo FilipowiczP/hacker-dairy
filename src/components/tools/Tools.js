@@ -139,8 +139,16 @@ const Tools = () => {
             <h2>Active directory</h2>
             <Link to='https://github.com/FilipowiczP/PowerSploit/blob/master/Recon/PowerView.ps1'>PowerView.ps1</Link>
             <Link to='https://github.com/FilipowiczP/impacket/blob/master/examples/GetUserSPNs.py'>GetUserSPNs.py</Link>
+            <Link to='https://github.com/FilipowiczP/impacket/blob/master/examples/secretsdump.py'>secretsdump.py</Link>
             <Link to='https://github.com/FilipowiczP/mimikatz'>Mimikatz</Link>
 
+            <hr />
+            <h2>Chisel</h2>
+            <Link to='https://github.com/FilipowiczP/chisel'>Chisel</Link>
+
+            <hr />
+            <h2>LinPEAS</h2>
+            <Link to='https://github.com/FilipowiczP/Peas/tree/master/linPEAS'>LinPEAS</Link>
         </section>
     )
 };
