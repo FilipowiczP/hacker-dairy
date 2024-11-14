@@ -232,3 +232,20 @@ section {
 		}
 	}
 }
+
+details{
+	color: map.get($colors,"link");
+	span {
+		color: map.get($colors,"waring");
+		display: inline-block;
+		margin-left: 4px;
+	}
+	p {
+		text-align: left;
+	}
+	summary{
+		text-decoration: underline;
+		font-size: 24px;
+		margin: 16px 0;
+	}
+}

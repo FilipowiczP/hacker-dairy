@@ -199,6 +199,12 @@ export const navigationList = [
         ]
     },
     {
+        name: 'Windows commands',
+        path: '/windows-commends',
+        subLinks:[
+        ]
+    },
+    {
         name: 'Commends',
         path: '/commends',
         subLinks:[

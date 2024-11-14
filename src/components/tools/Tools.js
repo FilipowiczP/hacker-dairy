@@ -13,6 +13,7 @@ const Tools = () => {
     return(
         <section className='tools'>
             <h1>Tools list repos</h1>
+            <Link to='https://www.revshells.com'>Reverse shell web</Link>
             <Link to='https://github.com/FilipowiczP/SecLists'>SecLists - Word listy.</Link>
             <Link to='https://github.com/FilipowiczP/dnsenum'>dnsenum - Kompleksowe narzędzie do wyliczania DNS, które obsługuje ataki słownikowe i brute-force w celu wykrycia subdomen.</Link>
             <Link to='https://github.com/FilipowiczP/gobuster'>gobuster - Wielozadaniowe narzędzie często używane do brutalnego wymuszania katalogów/plików, ale także skuteczne do wykrywania hostów wirtualnych.</Link>
@@ -149,6 +150,15 @@ const Tools = () => {
             <hr />
             <h2>LinPEAS</h2>
             <Link to='https://github.com/FilipowiczP/Peas/tree/master/linPEAS'>LinPEAS</Link>
+
+            <hr />
+            <Link to='https://github.com/FilipowiczP/accesschk'>accesschk.exe</Link>
+            <Link to='https://github.com/FilipowiczP/printspoofer-potato'>PrintSpoofer.exe oraz JuicyPotato.exe</Link>
+            <Link to='https://github.com/FilipowiczP/enable-privilege'>Enable-Privilege.ps1</Link>
+            <Link to='https://github.com/FilipowiczP/SessionGopher'>SessionGopher.ps1</Link>
+            <Link to='https://github.com/FilipowiczP/PowerUp'>PowerUp.ps1</Link>
+            <Link to='https://github.com/FilipowiczP/hhupd.exe'>hhupd.exe</Link>
+            
         </section>
     )
 };

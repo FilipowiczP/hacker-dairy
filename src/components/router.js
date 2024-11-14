@@ -42,6 +42,7 @@ import PortForwarding from './pivoting-tunneling-port-forward/PortForwarding';
 import Tunneling from './pivoting-tunneling-port-forward/Tunneling';
 import ActiveDirectoryCommands from './active-directory/ActiveDirectoryCommands';
 import AD from './active-directory/AD';
+import PrivilegeEscalataion from './windows/command-and-escalation/PrivilegeEscalataion';
 
 const Routing = () => {
     return(
@@ -89,6 +90,7 @@ const Routing = () => {
           <Route path="/tunneling" element={<Tunneling />} />
           <Route path="/active-directory-commnads" element={<ActiveDirectoryCommands />} />
           <Route path="/active-directory" element={<AD />} />
+          <Route path="/windows-commends" element={<PrivilegeEscalataion />} />
 
       </Routes>
     )
