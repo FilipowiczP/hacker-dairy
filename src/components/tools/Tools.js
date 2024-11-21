@@ -146,6 +146,10 @@ const Tools = () => {
             <hr />
             <h2>Chisel</h2>
             <Link to='https://github.com/FilipowiczP/chisel'>Chisel</Link>
+            <div className='waring'>
+                <p>cd chisel</p>
+                <p>go build</p>
+            </div>
 
             <hr />
             <h2>LinPEAS</h2>
@@ -158,6 +162,11 @@ const Tools = () => {
             <Link to='https://github.com/FilipowiczP/SessionGopher'>SessionGopher.ps1</Link>
             <Link to='https://github.com/FilipowiczP/PowerUp'>PowerUp.ps1</Link>
             <Link to='https://github.com/FilipowiczP/hhupd.exe'>hhupd.exe</Link>
+
+
+            <hr />
+
+            <Link to='https://github.com/FilipowiczP/username-anarchy'>username anarchy</Link>
             
         </section>
     )

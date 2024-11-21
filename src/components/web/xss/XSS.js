@@ -35,6 +35,8 @@ const XSS = () => {
             </table>
 
             <hr />
+            <p className='important'>{'#"><img src=/ onerror=alert(document.cookie)>'}</p>
+            <p className='important'>{'<object data="javascript:alert(1)">'}</p>
 
             <h2>XSStrike</h2>
             <div className='example_code'>

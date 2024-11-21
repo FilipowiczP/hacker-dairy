@@ -8,6 +8,8 @@ const MachinesLab = () =>{
             <Link to='board-light'>Board Light</Link>
             <Link to='see'>See</Link>
             <Link to='permx'>PermX</Link>
+            <Link to='cicada'>Cicada</Link>
+            <Link to='chemistry'>Chemistry</Link>
         </section>
     )
 }

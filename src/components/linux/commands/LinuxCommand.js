@@ -81,6 +81,9 @@ const LinuxCommands = () => {
                 <p>for l in $(echo ".py .pyc .pl .go .jar .c .sh");do echo -e "\nFile extension: " $l; find / -name *$l 2{`>`}/dev/null | grep -v "doc\|lib\|headers\|share";done</p>
                 <p>for i in $(ls /var/log/* 2{`>`}/dev/null);do GREP=$(grep "accepted\|session opened\|session closed\|failure\|failed\|ssh\|password changed\|new user\|delete user\|sudo\|COMMAND\=\|logs" $i 2{`>`}/dev/null); if [[ $GREP ]];then echo -e "\n#### Log file: " $i; grep "accepted\|session opened\|session closed\|failure\|failed\|ssh\|password changed\|new user\|delete user\|sudo\|COMMAND\=\|logs" $i 2{`>`}/dev/null;fi;done</p>
             </div>
+            <div className='waring'>
+                <p>grep --color=auto -rnw '{`<Path>`}' -ie "{`<Looking for word>`}" --color=always 2{`>`}/dev/null</p>
+            </div>
 
             <table>
                 <thead>
