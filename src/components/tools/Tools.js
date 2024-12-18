@@ -15,6 +15,7 @@ const Tools = () => {
             <h1>Tools list repos</h1>
             <Link to='https://www.revshells.com'>Reverse shell web</Link>
             <Link to='https://github.com/FilipowiczP/SecLists'>SecLists - Word listy.</Link>
+            <Link to='https://github.com/FilipowiczP/dirsearch'>dirsearch - Kompleksowe narzędzie do wyliczania folderów na stronie.</Link>
             <Link to='https://github.com/FilipowiczP/dnsenum'>dnsenum - Kompleksowe narzędzie do wyliczania DNS, które obsługuje ataki słownikowe i brute-force w celu wykrycia subdomen.</Link>
             <Link to='https://github.com/FilipowiczP/gobuster'>gobuster - Wielozadaniowe narzędzie często używane do brutalnego wymuszania katalogów/plików, ale także skuteczne do wykrywania hostów wirtualnych.</Link>
             

@@ -215,5 +215,11 @@ export const navigationList = [
         path: '/machines-lab',
         subLinks:[
         ]
+    },
+    {
+        name: 'Bug bounty',
+        path: '/bug-bounty',
+        subLinks:[
+        ]
     }
 ]

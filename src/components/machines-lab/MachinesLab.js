@@ -10,6 +10,8 @@ const MachinesLab = () =>{
             <Link to='permx'>PermX</Link>
             <Link to='cicada'>Cicada</Link>
             <Link to='chemistry'>Chemistry</Link>
+            <Link to='chemistry'>Chemistry</Link>
+            <Link to='greenHorn'>GreenHorn</Link>
         </section>
     )
 }

