@@ -214,6 +214,288 @@ const LinuxCommands = () => {
                 <p>Czekamy aż cron wykona pliki</p>
                 <p>/tmp/bash -p</p>
             </details>
+
+            <details>
+                <summary>Jaki jest typ dystrybucji? Jaka wersja?</summary>
+                <p>cat /etc/issue</p>
+                <p>cat /etc/*-release</p>
+                <p>cat /etc/lsb-release      # Debian based</p>
+                <p>cat /etc/redhat-release   # Redhat based</p>
+            </details>
+            <details>
+                <summary>Jaka jest wersja jądra? Czy jest 64-bitowy?</summary>
+                <p>cat /proc/version</p>
+                <p>uname -a</p>
+                <p>uname -mrs</p>
+                <p>rpm -q kernel</p>
+                <p>dmesg | grep Linux</p>
+                <p>ls /boot | grep vmlinuz-</p>
+            </details>
+            <details>
+                <summary>Czego można się dowiedzieć ze zmiennych środowiskowych?</summary>
+                <p>cat /etc/profile</p>
+                <p>cat /etc/bashrc</p>
+                <p>cat ~/.bash_profile</p>
+                <p>cat ~/.bashrc</p>
+                <p>cat ~/.bash_logout</p>
+                <p>env</p>
+                <p>set</p>
+            </details>
+            <details>
+                <summary>Czy jest drukarka?</summary>
+                <p>lpstat -a</p>
+            </details>
+            <details>
+                <summary>Jakie usługi są uruchomione? Która usługa ma jakie uprawnienia użytkownika?</summary>
+                <p>ps aux</p>
+                <p>ps -ef</p>
+                <p>top</p>
+                <p>cat /etc/services</p>
+            </details>
+            <details>
+                <summary>Które usługi są uruchamiane przez roota? Spośród tych usług, które są podatne na ataki - warto dokładnie sprawdzić!</summary>
+                <p>ps aux | grep root</p>
+                <p>ps -ef | grep root</p>
+            </details>
+            <details>
+                <summary>Jakie aplikacje są zainstalowane? Jaka to wersja? Czy obecnie działają?</summary>
+                <p>ls -alh /usr/bin/</p>
+                <p>ls -alh /sbin/</p>
+                <p>dpkg -l</p>
+                <p>rpm -qa</p>
+                <p>ls -alh /var/cache/apt/archivesO</p>
+                <p>ls -alh /var/cache/yum/</p>
+            </details>
+            <details>
+                <summary>Któreś z ustawień usług są źle skonfigurowane? Czy są dołączone jakieś (bezpieczne) wtyczki?</summary>
+                <p>cat /etc/syslog.conf</p>
+                <p>cat /etc/chttp.conf</p>
+                <p>cat /etc/lighttpd.conf</p>
+                <p>cat /etc/cups/cupsd.conf</p>
+                <p>cat /etc/inetd.conf</p>
+                <p>cat /etc/apache2/apache2.conf</p>
+                <p>cat /etc/my.conf</p>
+                <p>cat /etc/httpd/conf/httpd.conf</p>
+                <p>cat /opt/lampp/etc/httpd.conf</p>
+                <p>ls -aRl /etc/ | awk '$1 ~ /^.*r.*/</p>
+            </details>
+            <details>
+                <summary>Jakie prace są zaplanowane?</summary>
+                <p>crontab -l</p>
+                <p>ls -alh /var/spool/cron</p>
+                <p>ls -al /etc/ | grep cron</p>
+                <p>ls -al /etc/cron*</p>
+                <p>cat /etc/cron*</p>
+                <p>cat /etc/at.allow</p>
+                <p>cat /etc/at.deny</p>
+                <p>cat /etc/cron.allow</p>
+                <p>cat /etc/cron.deny</p>
+                <p>cat /etc/crontab</p>
+                <p>cat /etc/anacrontab</p>
+                <p>cat /var/spool/cron/crontabs/root</p>
+            </details>
+            <details>
+                <summary>Jakie karty sieciowe ma system? Czy jest podłączony do innej sieci?</summary>
+                <p>/sbin/ifconfig -a</p>
+                <p>cat /etc/network/interfaces</p>
+                <p>cat /etc/sysconfig/network</p>
+            </details>
+            <details>
+                <summary>Jakie są ustawienia konfiguracji sieci? Czego możesz dowiedzieć się o tej sieci? Serwer DHCP? Serwer DNS? Wejście?</summary>
+                <p>cat /etc/resolv.conf</p>
+                <p>cat /etc/sysconfig/network</p>
+                <p>cat /etc/networks</p>
+                <p>iptables -L</p>
+                <p>hostname</p>
+                <p>dnsdomainname</p>
+            </details>
+            <details>
+                <summary>Jacy inni użytkownicy i hosty komunikują się z systemem?</summary>
+                <p>lsof -i</p>
+                <p>lsof -i :80</p>
+                <p>grep 80 /etc/services</p>
+                <p>netstat -antup</p>
+                <p>netstat -antpx</p>
+                <p>nnetstat -tulpn</p>
+                <p>chkconfig --list</p>
+                <p>chkconfig --list | grep 3:on</p>
+                <p>last</p>
+                <p>w</p>
+            </details>
+            <details>
+                <summary>Co jest zapisane w pamięci podręcznej? Adresy IP i/lub MAC</summary>
+                <p>arp -e</p>
+                <p>route</p>
+                <p>/sbin/route -nee</p>
+            </details>
+            <details>
+                <summary>Czy możliwe jest wąchanie pakietów? Co można zobaczyć? Słuchaj ruchu na żywo</summary>
+                <p>tcpdump tcp dst 192.168.1.7 80 and tcp dst 10.5.5.252 21</p>
+            </details>
+            <details>
+                <summary>Kim jesteś? Kto jest zalogowany? Kto się zalogował? Kto jeszcze tam jest? Kto może co zrobić?</summary>
+                <p>id</p>
+                <p>who</p>
+                <p>w</p>
+                <p>last</p>
+                <p>cat /etc/passwd | cut -d: -f1    # List of users</p>
+                <p>grep -v -E "^#" /etc/passwd | awk -F: '$3 == 0 {`{ print $1}`}'   # List of super users</p>
+                <p>awk -F: '($3 == "0") {`{print}`}' /etc/passwd   # List of super users</p>
+                <p>cat /etc/sudoers</p>
+                <p>sudo -l</p>
+            </details>
+            <details>
+                <summary>Jakie wrażliwe pliki można znaleźć?</summary>
+                <p>cat /etc/passwd</p>
+                <p>cat /etc/group</p>
+                <p>cat /etc/shadow</p>
+                <p>ls -alh /var/mail/</p>
+            </details>
+            <details>
+                <summary>Czy są jakieś hasła; skrypty, bazy danych, pliki konfiguracyjne lub pliki dziennika? Domyślne ścieżki i lokalizacje haseł</summary>
+                <p>cat /var/apache2/config.inc</p>
+                <p>cat /var/lib/mysql/mysql/user.MYD</p>
+                <p>cat /root/anaconda-ks.cfg</p>
+            </details>
+            <details>
+                <summary>Co robi użytkownik? Czy jest jakieś hasło zapisane zwykłym tekstem? Co redagowali?</summary>
+                <p>cat ~/.bash_history</p>
+                <p>cat ~/.nano_history</p>
+                <p>cat ~/.atftp_history</p>
+                <p>cat ~/.mysql_history</p>
+                <p>cat ~/.php_history</p>
+            </details>
+            <details>
+                <summary>Jakie informacje o użytkowniku można znaleźć?</summary>
+                <p>cat ~/.bashrc</p>
+                <p>cat ~/.profile</p>
+                <p>cat /var/mail/root</p>
+                <p>cat /var/spool/mail/root</p>
+            </details>
+            <details>
+                <summary>Czy można znaleźć informacje o kluczu prywatnym?</summary>
+                <p>cat ~/.ssh/authorized_keys</p>
+                <p>cat ~/.ssh/identity.pub</p>
+                <p>cat ~/.ssh/identity</p>
+                <p>cat ~/.ssh/id_rsa.pub</p>
+                <p>cat ~/.ssh/id_rsa</p>
+                <p>cat ~/.ssh/id_dsa.pub</p>
+                <p>cat ~/.ssh/id_dsa</p>
+                <p>cat /etc/ssh/ssh_config</p>
+                <p>cat /etc/ssh/sshd_config</p>
+                <p>cat /etc/ssh/ssh_host_dsa_key.pub</p>
+                <p>cat /etc/ssh/ssh_host_dsa_key</p>
+                <p>cat /etc/ssh/ssh_host_rsa_key.pub</p>
+                <p>cat /etc/ssh/ssh_host_rsa_key</p>
+                <p>cat /etc/ssh/ssh_host_key.pub</p>
+                <p>cat /etc/ssh/ssh_host_key</p>
+            </details>
+            <details>
+                <summary>Jakie pliki konfiguracyjne można zapisać w /etc/? Czy możesz ponownie skonfigurować usługę?</summary>
+                <p>ls -aRl /etc/ | awk '$1 ~ /^.*w.*/' 2{`>`}/dev/null     # Anyone</p>
+                <p>ls -aRl /etc/ | awk '$1 ~ /^..w/' 2{`>`}/dev/null       # Owner</p>
+                <p>ls -aRl /etc/ | awk '$1 ~ /^.....w/' 2{`>`}/dev/null    # Group</p>
+                <p>ls -aRl /etc/ | awk '$1 ~ /w.$/' 2{`>`}/dev/null        # Other</p>
+                <p>find /etc/ -readable -type f 2{`>`}/dev/null               # Anyone</p>
+                <p>find /etc/ -readable -type f -maxdepth 1 2{`>`}/dev/null   # Anyone</p>
+            </details>
+            <details>
+                <summary>Co można znaleźć w /var/?</summary>
+                <p>ls -alh /var/log</p>
+                <p>ls -alh /var/mail</p>
+                <p>ls -alh /var/spool</p>
+                <p>ls -alh /var/spool/lpd</p>
+                <p>ls -alh /var/lib/pgsql</p>
+                <p>ls -alh /var/lib/mysql</p>
+                <p>cat /var/lib/dhcp3/dhclient.leases</p>
+            </details>
+            <details>
+                <summary>Jakieś ustawienia/pliki (ukryte) na stronie? Jakiś plik ustawień z informacjami o bazie danych?</summary>
+                <p>ls -alhR /var/www/</p>
+                <p>ls -alhR /srv/www/htdocs/</p>
+                <p>ls -alhR /usr/local/www/apache22/data/</p>
+                <p>ls -alhR /opt/lampp/htdocs/</p>
+                <p>ls -alhR /var/www/html/</p>
+            </details>
+            <details>
+                <summary>Czy jest coś w plikach dziennika (może pomóc w przypadku „Zawierania pliku lokalnego”!)</summary>
+                <p>cat /etc/httpd/logs/access_log</p>
+                <p>cat /etc/httpd/logs/access.log</p>
+                <p>cat /etc/httpd/logs/error_log</p>
+                <p>cat /etc/httpd/logs/error.log</p>
+                <p>cat /var/log/apache2/access_log</p>
+                <p>cat /var/log/apache2/access.log</p>
+                <p>cat /var/log/apache2/error_log</p>
+                <p>cat /var/log/apache2/error.log</p>
+                <p>cat /var/log/apache/access_log</p>
+                <p>cat /var/log/apache/access.log</p>
+                <p>cat /var/log/auth.log</p>
+                <p>cat /var/log/chttp.log</p>
+                <p>cat /var/log/cups/error_log</p>
+                <p>cat /var/log/dpkg.log</p>
+                <p>cat /var/log/faillog</p>
+                <p>cat /var/log/httpd/access_log</p>
+                <p>cat /var/log/httpd/access.log</p>
+                <p>cat /var/log/httpd/error_log</p>
+                <p>cat /var/log/httpd/error.log</p>
+                <p>cat /var/log/lastlog</p>
+                <p>cat /var/log/lighttpd/access.log</p>
+                <p>cat /var/log/lighttpd/error.log</p>
+                <p>cat /var/log/lighttpd/lighttpd.access.log</p>
+                <p>cat /var/log/lighttpd/lighttpd.error.log</p>
+                <p>cat /var/log/messages</p>
+                <p>cat /var/log/secure</p>
+                <p>cat /var/log/syslog</p>
+                <p>cat /var/log/wtmp</p>
+                <p>cat /var/log/xferlog</p>
+                <p>cat /var/log/yum.log</p>
+                <p>cat /var/run/utmp</p>
+                <p>cat /var/webmin/miniserv.log</p>
+                <p>cat /var/www/logs/access_log</p>
+                <p>cat /var/www/logs/access.log</p>
+                <p>ls -alh /var/lib/dhcp3/</p>
+                <p>ls -alh /var/log/postgresql/</p>
+                <p>ls -alh /var/log/proftpd/</p>
+                <p>ls -alh /var/log/samba/</p>
+            </details>
+            <details>
+                <summary>Jeśli polecenia są ograniczone, wyrywasz się z „więzienia”?</summary>
+                <p>python -c 'import pty;pty.spawn("/bin/bash")'</p>
+                <p>echo os.system('/bin/bash')</p>
+                <p>/bin/sh -i</p>
+            </details>
+            <details>
+                <summary>Jak montowane są systemy plików?</summary>
+                <p>mount</p>
+                <p>df -h</p>
+            </details>
+            <details>
+                <summary>Czy są jakieś niezamontowane systemy plików?</summary>
+                <p>cat /etc/fstab</p>
+            </details>
+            <details>
+                <summary>Jakie są używane „zaawansowane uprawnienia do plików systemu Linux”? Lepkie bity, SUID i GUID</summary>
+                <p>find / -perm -1000 -type d 2{`>`}/dev/null   # Sticky bit - Only the owner of the directory or the owner of a file can delete or rename here.</p>
+                <p>find / -perm -g=s -type f 2{`>`}/dev/null    # SGID (chmod 2000) - run as the group, not the user who started it.</p>
+                <p>find / -perm -u=s -type f 2{`>`}/dev/null    # SUID (chmod 4000) - run as the owner, not the user who started it.</p>
+                <p>find / -perm -g=s -o -perm -u=s -type f 2{`>`}/dev/null    # SGID or SUID</p>
+                <p>for i in `locate -r "bin$"`; do find $i \( -perm -4000 -o -perm -2000 \) -type f 2{`>`}/dev/null; done    # Looks in 'common' places: /bin, /sbin, /usr/bin, /usr/sbin, /usr/local/bin, /usr/local/sbin and any other *bin, for SGID or SUID (Quicker search)</p>
+                <p># find starting at root (/), SGID or SUID, not Symbolic links, only 3 folders deep, list with more detail and hide any errors (e.g. permission denied)</p>
+                <p>find / -perm -g=s -o -perm -4000 ! -type l -maxdepth 3 -exec ls -ld {} \; 2{`>`}/dev/null</p>
+            </details>
+            <details>
+                <summary>Gdzie można zapisywać i skąd wykonywać? Kilka „typowych” miejsc: /tmp, /var/tmp, /dev/shm</summary>
+                <p>find / -writable -type d 2{`>`}/dev/null      # world-writeable folders</p>
+                <p>find / -perm -222 -type d 2{`>`}/dev/null     # world-writeable folders</p>
+                <p>find / -perm -o w -type d 2{`>`}/dev/null     # world-writeable folders</p>
+                <p>find / -perm -o x -type d 2{`>`}/dev/null     # world-executable folders</p>
+                <p>find / \( -perm -o w -perm -o x \) -type d 2{`>`}/dev/null   # world-writeable & executable folders</p>
+            </details>
+            <details>
+                <summary>Jakieś „problematyczne” pliki? Pliki „nikt” z możliwością zapisu w programie Word</summary>
+                <p>find / -xdev -type d \( -perm -0002 -a ! -perm -1000 \) -print   # world-writeable files</p>
+                <p>find /dir -xdev \( -nouser -o -nogroup \) -print   # Noowner files</p>
+            </details>
         </section>
     )
 };
