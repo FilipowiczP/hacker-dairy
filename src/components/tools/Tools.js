@@ -4,6 +4,7 @@ import tool_dosfuscation from '../../assets/tool_dosfuscation.png';
 import sstimap from '../../assets/sstimap.png';
 import sstimap_functions from '../../assets/sstimap_functions.png';
 import password_SAM from '../../assets/password_SAM.png';
+import authentication_rsa_sign2n from '../../assets/authentication_rsa_sign2n.png';
 import { Link } from 'react-router-dom';
 import ExampleFrame from '../exampleFrame/ExampleFrame';
 import shell from '../../assets/shell.png';
@@ -13,7 +14,12 @@ const Tools = () => {
     return(
         <section className='tools'>
             <h1>Tools list repos</h1>
+
+            <Link to='https://portswigger.net/web-security/cross-site-scripting/cheat-sheet'>XSS cheat sheet</Link>
             <Link to='https://www.revshells.com'>Reverse shell web</Link>
+
+            <hr />
+
             <Link to='https://github.com/FilipowiczP/SecLists'>SecLists - Word listy.</Link>
             <Link to='https://github.com/FilipowiczP/dirsearch'>dirsearch - Kompleksowe narzędzie do wyliczania folderów na stronie.</Link>
             <Link to='https://github.com/FilipowiczP/dnsenum'>dnsenum - Kompleksowe narzędzie do wyliczania DNS, które obsługuje ataki słownikowe i brute-force w celu wykrycia subdomen.</Link>
@@ -168,6 +174,16 @@ const Tools = () => {
             <hr />
 
             <Link to='https://github.com/FilipowiczP/username-anarchy'>username anarchy</Link>
+            <Link to='https://github.com/FilipowiczP/jwt_tool'>JWT tool</Link>
+            <Link to='https://github.com/FilipowiczP/rsa_sign2n'>JWT rsa_sign2n</Link>
+            <div className='waring'>
+                <p>git clone https://github.com/FilipowiczP/rsa_sign2n</p>
+                <p>cd rsa_sign2n/standalone/</p>
+                <p>docker build . -t sig2n</p>
+                <p>docker run -it sig2n /bin/bash</p>
+                <p>python3 jwt_forgery.py {`<Token_1>`} {`Token_2`}</p>
+                <ExampleFrame screen={authentication_rsa_sign2n} />
+            </div>
             
         </section>
     )

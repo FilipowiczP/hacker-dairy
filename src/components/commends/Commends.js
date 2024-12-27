@@ -1796,6 +1796,10 @@ const Commends = () => {
                             <td>hashcat -m 13100 kerberos.txt /opt/useful/seclists/Passwords/Leaked-Databases/rockyou.txt</td>
                             <td>Odhashowanie kerberos hash file</td>
                         </tr>
+                        <tr>
+                            <td>hashcat -m 16500 jwt.txt /opt/useful/seclists/Passwords/Leaked-Databases/rockyou.txt</td>
+                            <td>Odhashowanie kerberos hash file</td>
+                        </tr>
                     </tbody>
                 </table>
             </details>
@@ -1929,6 +1933,36 @@ const Commends = () => {
                         <tr>
                             <td>bloodhound-python -d {'<Domena>'} -u {'<User>'} -p {'<Password>'} -ns {'<IP>'} -c all </td>
                             <td>Zebranie wszystkich danych z domeny</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </details>
+
+            <details>
+                <summary>JWT tool</summary>
+                <table>
+                    <thead>
+                        <tr>
+                        <th>Komenda</th>
+                        <th>Opis</th>
+                        </tr>
+                    </thead>
+                    <tbody className='description'>
+                        <tr>
+                            <td>jwt_tool.py {`<Token>`}</td>
+                            <td>Wyciągnij dane JWT</td>
+                        </tr>
+                        <tr>
+                            <td>jwt_tool.py {`<Token>`} -T</td>
+                            <td>Przerobienie danych w JWT</td>
+                        </tr>
+                        <tr>
+                            <td>jwt_tool.py -t {`<Url>`} -rh {`<Token>`} -M at</td>
+                            <td>Wszystkie exploit testy JWT</td>
+                        </tr>
+                        <tr>
+                            <td>jwt_tool.py {`<Token>`} --crack -d {`<Wordlist>`}</td>
+                            <td>Crack sygnatury</td>
                         </tr>
                     </tbody>
                 </table>

@@ -9,7 +9,34 @@ const FileInclusion = () =>{
         <section>
             <h1>File Inclusion</h1>
             <p>Najważniejszą rzeczą, o której należy pamiętać, jest to, że <span className="important">niektóre z funkcji odczytują tylko zawartość określonych plików, inne natomiast wykonują określone pliki. Co więcej, niektóre z nich umożliwiają określenie zdalnych adresów URL, podczas gdy inne działają tylko z plikami lokalnymi na serwerze zaplecza</span>. Poniższa tabela pokazuje, które funkcje mogą wykonywać pliki, a które tylko odczytują zawartość pliku:</p>
-       
+            <div className='waring'>
+                <p>?cat={`{payload}`}</p>
+                <p>?dir={`{payload}`}</p>
+                <p>?action={`{payload}`}</p>
+                <p>?board={`{payload}`}</p>
+                <p>?date={`{payload}`}</p>
+                <p>?detail={`{payload}`}</p>
+                <p>?file={`{payload}`}</p>
+                <p>?download={`{payload}`}</p>
+                <p>?path={`{payload}`}</p>
+                <p>?folder={`{payload}`}</p>
+                <p>?prefix={`{payload}`}</p>
+                <p>?include={`{payload}`}</p>
+                <p>?page={`{payload}`}</p>
+                <p>?inc={`{payload}`}</p>
+                <p>?locate={`{payload}`}</p>
+                <p>?show={`{payload}`}</p>
+                <p>?doc={`{payload}`}</p>
+                <p>?site={`{payload}`}</p>
+                <p>?type={`{payload}`}</p>
+                <p>?view={`{payload}`}</p>
+                <p>?content={`{payload}`}</p>
+                <p>?document={`{payload}`}</p>
+                <p>?layout={`{payload}`}</p>
+                <p>?mod={`{payload}`}</p>
+                <p>?conf={`{payload}`}</p>
+            </div>
+            <hr />
             <table class="table table-striped text-left">
                 <thead>
                     <tr>

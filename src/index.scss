@@ -242,10 +242,16 @@ details{
 	}
 	p {
 		text-align: left;
+		color: map.get($colors, "font");
+	}
+	ul, table{
+		color: map.get($colors, "font");
 	}
 	summary{
 		text-decoration: underline;
-		font-size: 24px;
+		font-size: 28px;
 		margin: 16px 0;
+		display: flex;
+		justify-content: center;
 	}
 }
