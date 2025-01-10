@@ -1798,7 +1798,7 @@ const Commends = () => {
                         </tr>
                         <tr>
                             <td>hashcat -m 16500 jwt.txt /opt/useful/seclists/Passwords/Leaked-Databases/rockyou.txt</td>
-                            <td>Odhashowanie kerberos hash file</td>
+                            <td>Odhashowanie jwt hash file</td>
                         </tr>
                     </tbody>
                 </table>

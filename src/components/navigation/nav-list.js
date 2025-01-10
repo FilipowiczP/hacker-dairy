@@ -52,8 +52,20 @@ export const navigationList = [
                 path: '/ssti'
             },
             {
+                name: 'Large Language Models (LLM)',
+                path: '/llm'
+            },
+            {
+                name: 'Clickjacking (UI redressing)',
+                path: '/clickjacking-ui'
+            },
+            {
                 name: 'Commands Injection',
                 path: '/commands-injection'
+            },
+            {
+                name: 'GraphQL',
+                path: '/graphql'
             },
             {
                 name: 'File Inclusion',

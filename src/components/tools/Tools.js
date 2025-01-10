@@ -15,8 +15,10 @@ const Tools = () => {
         <section className='tools'>
             <h1>Tools list repos</h1>
 
+            <Link to='https://book.hacktricks.xyz'>hacktricks</Link>
             <Link to='https://portswigger.net/web-security/cross-site-scripting/cheat-sheet'>XSS cheat sheet</Link>
             <Link to='https://www.revshells.com'>Reverse shell web</Link>
+            <Link to='https://webhook.site/#!/view/9c66c930-0809-483f-a428-4d6a416d3940'>Weebhooks</Link>
 
             <hr />
 

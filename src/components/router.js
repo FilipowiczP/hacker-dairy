@@ -47,6 +47,9 @@ import Cicada from './machines-lab/htb/Cicada';
 import Chemistry from './machines-lab/htb/Chemistry';
 import GreenHorn from './machines-lab/htb/GreenHorn';
 import BugBounty from './bug-bounty/BugBounty';
+import LLM from './web/llm/LLM';
+import ClickjackingUI from './web/clickjacking/ClickJackingUI';
+import GraphQL from './web/graphQL/GraphQL';
 
 const Routing = () => {
     return(
@@ -66,6 +69,8 @@ const Routing = () => {
           <Route path="/xxe" element={<XXE />} />
           <Route path="/ssrf" element={<SSRF />} />
           <Route path="/csrf" element={<CSRF />} />
+          <Route path="/llm" element={<LLM />} />
+          <Route path="/clickjacking-ui" element={<ClickjackingUI />} />
           <Route path="/ssti" element={<SSTI />} />
           <Route path="/brute-force" element={<BruteForce />} />
           <Route path="/authentication" element={<Authentication />} />
@@ -85,6 +90,7 @@ const Routing = () => {
           <Route path="/smb" element={<SMB />} />
           <Route path="/nfs" element={<NFS />} />
           <Route path="/dns" element={<DNS />} />
+          <Route path="/graphql" element={<GraphQL />} />
           <Route path="/smtp" element={<SMTP />} />
           <Route path="/imap-pop3" element={<ImapPop3 />} />
           <Route path="/mssql" element={<MsSql />} />

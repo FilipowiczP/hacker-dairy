@@ -152,6 +152,62 @@ const WebServicesApiAttack = () =>{
                 <p>Zauważysz, że odpowiedź interfejsu API zajmuje kilka sekund, a dłuższe ładunki <span className='important'>wydłużają czas oceny</span>. Różnica w czasie odpowiedzi pomiędzy pierwszym poleceniem cURL powyżej a drugim jest znacząca. API jest bez wątpienia <span className='important'>podatne na ataki ReDoS</span>.</p>
             </details>
 
+            <hr />
+                
+            <details>
+                <summary>Testing for server-side parameter pollution in the query string</summary>
+                <p>Aby przetestować zanieczyszczenie parametrów po stronie serwera w ciągu zapytania, umieść w danych wejściowych znaki składni zapytania, takie jak #, & i = i obserwuj, jak aplikacja zareaguje.</p>
+                <h2>Truncating query strings - # (%23)</h2>
+                <p>Możesz użyć znaku # zakodowanego w adresie URL, aby spróbować obciąć żądanie po stronie serwera.</p>
+                <div className='waring'>
+                    <p>GET /userSearch?name=peter<span className='important'>%23foo</span>&back=/home</p>
+                </div>
+
+                <h2>Injecting invalid parameters - & (%26)</h2>
+                <p>Możesz użyć znaku & zakodowanego w adresie URL, aby spróbować dodać drugi parametr do żądania po stronie serwera.</p>
+                <div className='waring'>
+                    <p>GET /userSearch?name=peter<span className='important'>%26foo=xyz</span>&back=/home</p>
+                </div>
+
+                <h2>Overriding existing parameters</h2>
+                <p>Aby sprawdzić, czy aplikacja jest podatna na zanieczyszczenie parametrów po stronie serwera, możesz spróbować zastąpić oryginalny parametr. Zrób to, wstrzykując drugi parametr o tej samej nazwie.</p>
+                <div className='waring'>
+                    <p>GET /userSearch?name=peter<span className='important'>%26name=carlos</span>&back=/home</p>
+                </div>
+                <p>Wewnętrzny interfejs API interpretuje dwa parametry nazw. Wpływ tego zależy od tego, jak aplikacja przetwarza drugi parametr. Różni się to w zależności od technologii internetowych. Na przykład:</p>
+                <p>PHP analizuje tylko ostatni parametr. Spowodowałoby to wyszukiwanie przez użytkownika hasła Carlos.</p>
+                <p>ASP.NET łączy oba parametry. Spowodowałoby to wyszukiwanie przez użytkownika hasła peter,carlos, co mogłoby skutkować wyświetleniem komunikatu o błędzie nieprawidłowej nazwy użytkownika.</p>
+                <p>Node.js / express analizuje tylko pierwszy parametr.</p>
+
+                <h2>Testowanie zanieczyszczenia parametrów po stronie serwera w ustrukturyzowanych formatach danych</h2>
+                <div className='waring'>
+                    <p>POST /myaccount</p>
+                    <p>name=peter</p>
+                </div>
+                <div className='waring'>
+                    <p>POST /myaccount</p>
+                    <p>name=peter<span className='waring'>","access_level":"administrator</span></p>
+                </div>
+                <hr />
+                <div className='waring'>
+                    <p>PATCH /users/7312/update</p>
+                    <p>{`{"name":"peter"}`}</p>
+                </div>
+                <div className='waring'>
+                    <p>PATCH /users/7312/update</p>
+                    <p>{`{"name":"peter`}<span className='important'>","access_level":"administrator</span>{`"}`}</p>
+                </div>
+                <hr />
+                <div className='waring'>
+                    <p>POST /myaccount</p>
+                    <p>{`{"name":"peter"}`}</p>
+                </div>
+                <div className='waring'>
+                    <p>PATCH /users/7312/update</p>
+                    <p>{`{"name":"peter`}<span className='important'>\",\"access_level\":\"administrator</span>{`"}`}</p>
+                </div>
+            </details>
+
         </section>
     )
 }

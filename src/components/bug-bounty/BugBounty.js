@@ -15,13 +15,39 @@ const BugBounty = () => {
                     </thead>
                     <tbody className='description'>
                         <tr>
+                            <td><Link to="https://www.first.org/cvss/calculator/4.0#CVSS:4.0/AV:P/AC:H/AT:P/PR:L/UI:P/VC:L/VI:L/VA:H/SC:N/SI:N/SA:N">CVSS</Link></td>
+                        </tr>
+                        <tr>
                             <td><Link to="https://github.com/FilipowiczP/bug-bounty-sh">script</Link></td>
+                        </tr>
+                        <tr>
+                            <td><Link to="https://crt.sh">crt.sh subdomains</Link></td>
+                        </tr>
+                        <tr>
+                            <td><Link to="https://securityheaders.com">securityheaders scan headers</Link></td>
+                        </tr>
+                        <tr>
                             <td><Link to="https://github.com/FilipowiczP/assetfinder">assetfinder</Link></td>
+                        </tr>
+                        <tr>
                             <td><Link to="https://github.com/FilipowiczP/amass">amass</Link></td>
                         </tr>
-             
                     </tbody>
                 </table>
+            </details>
+
+            <hr />
+
+            <details>
+                <summary>Kroki</summary>
+                <ol>
+                    <li>Target</li>
+                    <li>Łapanie subdomains - subfinder, assetfinder, amass</li>
+                    <li>Łapanie alive subdomains - httprobe</li>
+                    <li>Pozbycie się duplikatów - Sortowanie i unique</li>
+                    <li>Screeny alived subdomains - gowitness</li>
+                    <li>nmap alived subdomains</li>
+                </ol>
             </details>
 
             <hr />
