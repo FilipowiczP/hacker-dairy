@@ -50,6 +50,10 @@ import BugBounty from './bug-bounty/BugBounty';
 import LLM from './web/llm/LLM';
 import ClickjackingUI from './web/clickjacking/ClickJackingUI';
 import GraphQL from './web/graphQL/GraphQL';
+import NoSql from './database/noSql/NoSql';
+import RaceCondition from './web/race-condition/RaceCondition';
+import RequestHeader from './web/request-headers/RequestHeaders';
+import WebCache from './web/web-cache/WebCache';
 
 const Routing = () => {
     return(
@@ -86,11 +90,15 @@ const Routing = () => {
           <Route path="/file-inclusion" element={<FileInclusion />} />
           <Route path="/web-services-api-attack" element={<WebServicesApiAttack />} />
           <Route path="/word-press" element={<WordPress />} />
+          <Route path="/request-headers" element={<RequestHeader />} />
+          <Route path="/web-cache" element={<WebCache />} />
           <Route path="/ftp" element={<FTP />} />
+          <Route path="/race-condition" element={<RaceCondition />} />
           <Route path="/smb" element={<SMB />} />
           <Route path="/nfs" element={<NFS />} />
           <Route path="/dns" element={<DNS />} />
           <Route path="/graphql" element={<GraphQL />} />
+          <Route path="/nosql" element={<NoSql />} />
           <Route path="/smtp" element={<SMTP />} />
           <Route path="/imap-pop3" element={<ImapPop3 />} />
           <Route path="/mssql" element={<MsSql />} />

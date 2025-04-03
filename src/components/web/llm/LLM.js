@@ -57,6 +57,18 @@ const LLM = () =>{
                 </div>
             </details>
 
+            <hr />
+
+            <details>
+                <summary className='defense'>Zabezpieczanie LLM/ WebSocket</summary>
+                <ul className='defense'>
+                    <li>Użyj protokołu wss:// (WebSockets przez TLS).</li>
+                    <li>Zakoduj na stałe adres URL punktu końcowego WebSockets i z pewnością nie dołączaj do tego adresu URL danych kontrolowanych przez użytkownika.</li>
+                    <li>Chroń wiadomość uzgadniania protokołu WebSocket przed CSRF, aby uniknąć luk w zabezpieczeniach związanych z przechwytywaniem protokołu WebSocket między witrynami.</li>
+                    <li>Traktuj dane otrzymane za pośrednictwem protokołu WebSocket jako niezaufane w obu kierunkach. Bezpiecznie obsługuj dane zarówno po stronie serwera, jak i klienta, aby zapobiec podatnościom opartym na danych wejściowych, takim jak wstrzykiwanie SQL i wykonywanie skryptów między lokacjami.</li>
+                </ul>
+            </details>
+
         </section>
     )
 }

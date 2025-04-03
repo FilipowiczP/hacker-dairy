@@ -47,6 +47,10 @@ table {
 	border-spacing: 0;
 }
 
+#root{
+	display: flex;
+}
+
 body {
   background-color: map.get($colors, "background");
   color: map.get($colors, "font");
@@ -191,9 +195,9 @@ section {
     }
 
 	p,a,li,img,h2,h3,h4,h5,h6 {
-		margin: 12px 0;
+		margin: 21px 0;
 		font-size: 18px;
-		line-height: 1.4;
+		line-height: 1.6;
 	}
 
 	a {

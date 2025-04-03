@@ -64,8 +64,20 @@ export const navigationList = [
                 path: '/commands-injection'
             },
             {
+                name: 'Race Condition',
+                path: '/race-condition'
+            },
+            {
                 name: 'GraphQL',
                 path: '/graphql'
+            },
+            {
+                name: 'Web cache',
+                path: '/web-cache'
+            },
+            {
+                name: 'Request Headers',
+                path: '/request-headers'
             },
             {
                 name: 'File Inclusion',
@@ -92,6 +104,10 @@ export const navigationList = [
             {
                 name: 'MySQL',
                 path: '/mysql'
+            },
+            {
+                name: 'NoSql',
+                path: '/nosql'
             },
             {
                 name: 'MsSQL',
