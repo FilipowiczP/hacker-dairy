@@ -6,6 +6,16 @@ const LinuxCommands = () => {
         <section>
             <h1>Linux Commands</h1>
 
+            <details>
+                <summary>(~) do nazwy</summary>
+                <p>Dodanie tyldy (<span className='important'>~</span>) do nazwy pliku w systemie Linux najczęściej oznacza, że <span className='important'>jest to plik kopii zapasowej (backup)</span>. Nie jest to jednak żadna specjalna cecha systemu plików – to raczej konwencja przyjęta przez niektóre edytory tekstu i programy, np.:</p>
+                <p><span className='important'>Emacs, nano, czy gedit</span> – często tworzą kopię pliku przed jego edycją i zapisują ją jako plik.txt~.</p>
+                <p>Pliki z ~ na końcu są zazwyczaj kopią poprzedniego stanu pliku.</p>
+            </details>
+
+            <hr />
+        
+
             <table>
                 <thead>
                     <tr>

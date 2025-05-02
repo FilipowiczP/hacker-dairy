@@ -154,6 +154,55 @@ const WebCache = () =>{
             <hr />
 
             <details>
+            <summary>Maskowanie parametrów pamięci podręcznej</summary>
+                <p>Rozważ następującą prośbę:</p>
+                <p>GET /?keyed_param=abc&excluded_param=123<span className='important'>;keyed_param=bad-stuff-here</span></p>
+                <p>Jak sugerują nazwy, <span className='important'>keyed_param</span> jest zawarty w kluczu pamięci podręcznej, ale disabled_param nie. <span className='important'>Wiele pamięci podręcznych zinterpretuje to tylko jako dwa parametry, ograniczone znakiem ampersand:</span></p>
+                <div className='waring'>
+                    <p>1. keyed_param=abc</p>
+                    <p>2. excluded_param=123;keyed_param=bad-stuff-here</p>
+                </div>
+                <p>Gdy algorytm parsowania usunie <span className='important'>exclude_param</span>, klucz pamięci podręcznej będzie zawierał tylko <span className='important'>keyed_param=abc</span>. Jednak w zapleczu <span className='important'><u>Ruby on Rails</u> widzi średnik i dzieli ciąg zapytania na trzy oddzielne parametry:</span></p>
+                <div className='waring'>
+                    <p>1. keyed_param=abc</p>
+                    <p>2. excluded_param=123</p>
+                    <p>3. keyed_param=bad-stuff-here</p>
+                </div>
+            </details>
+
+
+            <hr />
+
+            <details>
+            <summary>Wykorzystywanie wsparcia Fat GET</summary>
+                <p>W wybranych przypadkach metoda HTTP może nie być kluczowana. Może to umożliwić zatrucie pamięci podręcznej żądaniem POST zawierającym złośliwy ładunek w treści. <span className='important'>Twój ładunek będzie wtedy nawet obsługiwany w odpowiedzi na żądania GET użytkowników</span>. Chociaż ten scenariusz jest dość rzadki, czasami możesz osiągnąć podobny efekt, <span className='important'>po prostu dodając ciało do żądania GET, aby utworzyć „grube” żądanie GET</span>:</p>
+                <div className='waring'>
+                    <p>GET /?param=innocent HTTP/1.1</p>
+                    <p>...</p>
+                    <p>param=bad-stuff-here</p>
+                </div>
+                <div className='waring'>
+                    <p>GET /?param=innocent HTTP/1.1</p>
+                    <p><span className='important'>X-HTTP-Method-Override: POST</span></p>
+                    <p>...</p>
+                    <p>param=bad-stuff-here</p>
+                </div>
+            </details>
+
+            <hr />
+
+            <details>
+            <summary>Wykrywanie ciągu zapytania bez klucza</summary>
+            <p>Na przykład następujące wpisy mogą być buforowane osobno, ale traktowane jako równoważne z GET / w zapleczu</p>
+            <p>Apache: GET <span className='important'>//</span></p>
+            <p>Nginx: GET <span className='important'>/%2F</span></p>
+            <p>PHP: GET <span className='important'>/index.php/xyz</span></p>
+            <p>.NET: GET <span className='important'>{`/(A(xyz)/`}</span></p>
+            </details>
+
+            <hr />
+
+            <details>
             <summary>Przykłady</summary>
             <div className='waring'>
                 <p>https://YOUR-LAB-ID.web-security-academy.net/my-account/<span className='important'>;wcd</span>.js</p>

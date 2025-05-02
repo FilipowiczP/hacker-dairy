@@ -54,6 +54,9 @@ import NoSql from './database/noSql/NoSql';
 import RaceCondition from './web/race-condition/RaceCondition';
 import RequestHeader from './web/request-headers/RequestHeaders';
 import WebCache from './web/web-cache/WebCache';
+import Prototype from './web/prototype/Prototype';
+import Deserialization from './web/deserialization/Deserialization';
+import HTTPRequestSmuggling from './web/http-smuggling/HttpRequestSmuggling';
 
 const Routing = () => {
     return(
@@ -92,6 +95,7 @@ const Routing = () => {
           <Route path="/word-press" element={<WordPress />} />
           <Route path="/request-headers" element={<RequestHeader />} />
           <Route path="/web-cache" element={<WebCache />} />
+          <Route path="/prototype" element={<Prototype />} />
           <Route path="/ftp" element={<FTP />} />
           <Route path="/race-condition" element={<RaceCondition />} />
           <Route path="/smb" element={<SMB />} />
@@ -105,6 +109,8 @@ const Routing = () => {
           <Route path="/rdp" element={<RDP />} />
           <Route path="/file-transfer-windows" element={<FileTransferWindows />} />
           <Route path="/file-transfer-linux" element={<FileTransferLinux />} />
+          <Route path="/deserialization" element={<Deserialization />} />
+          <Route path="//http-request-smuggling" element={<HTTPRequestSmuggling />} />
           <Route path="/shell" element={<Shell />} />
           <Route path="/password" element={<Password />} />
           <Route path="/port-forwarding" element={<PortForwarding />} />

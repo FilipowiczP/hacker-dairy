@@ -162,6 +162,40 @@ const XSS = () => {
                 <p>W przypadku znalezienia linku api (<span className='important'>http://{`<TARGET IP>`}:3000/api/download/</span>), możemy zastosować <span className='important'>{`%3Cscript%3Ealert%28document.domain%29%3C%2Fscript%3E`}</span></p>
                 <ExampleFrame screen={xss_in_api} />
             </details>
+
+            <hr />
+
+            <details>
+                <summary>Które ujścia mogą prowadzić do luk w zabezpieczeniach DOM-XSS?</summary>
+                <p>document.write()</p>
+                <p>document.writeln()</p>
+                <p>document.domain</p>
+                <p>element.innerHTML</p>
+                <p>element.outerHTML</p>
+                <p>element.insertAdjacentHTML</p>
+                <p>element.onevent</p>
+                <br />
+                <h2>jQuery</h2>
+                <p>add()</p>
+                <p>after()</p>
+                <p>append()</p>
+                <p>animate()</p>
+                <p>insertAfter()</p>
+                <p>before()</p>
+                <p>html()</p>
+                <p>prepend()</p>
+                <p>replaceAll()</p>
+                <p>replaceWith()</p>
+                <p>wrap()</p>
+                <p>wrapInner()</p>
+                <p>wrapAll()</p>
+                <p>has()</p>
+                <p>constructor()</p>
+                <p>init()</p>
+                <p>index()</p>
+                <p>jQuery.parseHTML()</p>
+                <p>$.parseHTML()</p>
+            </details>
             
             <hr />
 

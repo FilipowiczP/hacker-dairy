@@ -18,6 +18,14 @@ const Authentication = () => {
         <section>
             <h1>Authentication</h1>
 
+            <p>Istnieją trzy główne typy uwierzytelniania:</p>  
+            <ul>
+                <li>Coś, <span className='important'>co wiesz</span>, na przykład hasło lub odpowiedź na pytanie bezpieczeństwa. Czasami nazywa się to „czynnikami wiedzy”.</li>
+                <li>Coś, <span className='important'>co posiadasz</span>, to obiekt fizyczny, taki jak telefon komórkowy lub token bezpieczeństwa. Czasami nazywa się to „czynnikami posiadania”.</li>
+                <li>Coś, <span className='important'>czym jesteś lub co robisz</span>. Na przykład, twoje dane biometryczne lub wzorce zachowań. Czasami nazywa się to „czynnikami wrodzonymi”.</li>
+            </ul>
+
+
 
 
             <details>
@@ -118,6 +126,69 @@ const Authentication = () => {
             <p><Link to='https://www.cirt.net/passwords'>Lista serwisów z domyślnymi hasłami</Link></p>
             <p><Link to='https://github.com/scadastrangelove/SCADAPASS/blob/master/scadapass.csv'>Lista serwisów z domyślnymi hasłami</Link></p>
             <Link to='https://github.com/FilipowiczP/SecLists/blob/master/Passwords/Default-Credentials/default-passwords.csv'>Lista serwisów z domyślnymi hasłami - SecLists</Link>
+
+            <hr />
+
+            <details>
+                <summary>Wyliczanie nazw użytkowników za pomocą subtelnie różnych odpowiedzi</summary>
+                <p>Istnieją przypadki w których zmiany w responsie będą bardzo małe np.:</p>
+                <p>Fałszywy "<span className='waring'>Invalid username or password</span><span className='important'>.</span>"</p>
+                <br />
+                <p>Prawdziwy user "<span className='waring'>Invalid username or password</span>"</p>
+                <p>Rożnica jedynie kropi na końcu</p>
+            </details>
+
+            <hr />
+
+            <details>
+                <summary>Wyliczanie nazw użytkowników poprzez blokadę konta</summary>
+                <p>Możemy forsować wywoładnie błędnu zbyt wielu zapytań do danego konta, tylko w przypadku prawdziwie istniejącego konta pojawi się nam błąd przy zbyt wielu próbych. Przy reszcie będzie zwykły błąd (np. "Incorrect username or password")</p>
+                <br/>
+                <br/>
+                <p>Przy poprawnych passach może nie pojawić się nam błąd o zablokowanym koncie, jednak będziemy musieli odczekać czas na odblokowanie konta by móc się zalogować </p>
+            </details>
+
+            <hr />
+
+            <details>
+                <summary>Ominięcie blokady IP</summary>
+                <p>Istnieje ograniczenie błędnych zapytań z danego IP, możemy to pominąć dodając oraz zmieniając nagłówek <span className='important'>X-Forwarded-For</span></p>
+                <br/>
+                <br/>
+                <br/>
+                <p>Istnieje również możliwość w którym możemy odkryć ile możemy nie poprawnie podać dane logowanie by zablokować nasze IP, a następnie przy brute-force podawać poprawne dane by wyzerować licznik błędnie wpisanych danych (Nawet do innego konta)</p>
+            </details>
+
+            <hr />
+
+            <details>
+                <summary>Wyliczenie na podstawie czasu response</summary>
+                <p>Aplikcja może dłużej przetwarzać request jeżeli część jest poprawna. W przypadku błędnego username request będzie szybszy, ponieważ aplikacja nie będzie dalej przetwarzać skoro na początku jest już fałsz</p>
+                <div className='waring'>
+                    <p>Warto dać długie hasło by długi response był lepiej lepiej widoczny na tle innych requestów</p>
+                </div>
+            </details>
+
+            <hr />
+
+            <details>
+                <summary>Zatrucie resetowania hasła za pomocą oprogramowania pośredniczącego</summary>
+                <p>W przypadku gdy aplikacja nie sprawdza w pełni poprawnie requesta możemy dodać nagłóweg X-Forward-Host (proxy) do którego zostanie przekazany token innego usera do resetu hasła</p>
+            </details>
+
+            <hr />
+
+            <details>
+                <summary>Zaszyte w cookie credentiale do logowania</summary>
+                <p>Często aplikacje korzystają z prostego szyfrowania cookie tworząc je poprzez base64(username+':'+md5HashOfPassword), w ten sposób można brute-force odgadnąć sesję innego usera</p>
+            </details>
+
+            <hr />
+
+            <details>
+                <summary>2FA simple bypass</summary>
+                <p>Po zalogowaniu się na usera można w prosty sposób ominąć 2FA poprzez podania url panelu usera, ponieważ jako user w tym momencie już jesteśmy zalogowani, a 2FA jest zbędne</p>
+            </details>
 
             <hr />
 
