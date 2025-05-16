@@ -19,7 +19,7 @@ time, mark, audio, video {
 	padding: 0;
 	border: 0;
 	font-size: 100%;
-	font: inherit;
+	font-family: Arial, Helvetica, sans-serif;
 	vertical-align: baseline;
 }
 /* HTML5 display-role reset for older browsers */
@@ -258,5 +258,39 @@ details{
 		margin: 16px 0;
 		display: flex;
 		justify-content: center;
+	}
+}
+
+.cases{
+	ul{
+		li{
+			color: map.get($colors,"link");
+			font-size: 22px;
+			position: relative;
+			&::before{
+				content: '';
+				left: -17px;
+				top:12px;
+				display: block;
+				width: 8px;
+				height: 8px;
+				border-radius: 50%;
+				background: map.get($colors,"link");
+				position: absolute;
+			}
+			summary{
+			justify-content: flex-start;
+			font-size: 20px;
+
+			}
+		}
+	}
+}		
+
+.waring{
+	.result{	
+		color: map.get($colors,"important") !important;
+		text-decoration: underline;
+		font-size: 18px;
 	}
 }

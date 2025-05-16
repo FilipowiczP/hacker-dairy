@@ -72,6 +72,14 @@ export const navigationList = [
                 path: '/graphql'
             },
             {
+                name: 'JWT',
+                path: '/jwt'
+            },
+            {
+                name: 'OAuth',
+                path: '/oauth'
+            },
+            {
                 name: 'Web cache',
                 path: '/web-cache'
             },
@@ -259,6 +267,12 @@ export const navigationList = [
     {
         name: 'Bug bounty',
         path: '/bug-bounty',
+        subLinks:[
+        ]
+    },
+    {
+        name: 'Cases',
+        path: '/cases',
         subLinks:[
         ]
     }

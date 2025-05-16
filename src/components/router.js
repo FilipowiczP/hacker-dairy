@@ -57,6 +57,9 @@ import WebCache from './web/web-cache/WebCache';
 import Prototype from './web/prototype/Prototype';
 import Deserialization from './web/deserialization/Deserialization';
 import HTTPRequestSmuggling from './web/http-smuggling/HttpRequestSmuggling';
+import OAuth from './web/oauth/Oauth';
+import JWT from './web/jwt/JWT';
+import MainCases from './cases/MainCases';
 
 const Routing = () => {
     return(
@@ -102,6 +105,8 @@ const Routing = () => {
           <Route path="/nfs" element={<NFS />} />
           <Route path="/dns" element={<DNS />} />
           <Route path="/graphql" element={<GraphQL />} />
+          <Route path="/jwt" element={<JWT />} />
+          <Route path="/oauth" element={<OAuth />} />
           <Route path="/nosql" element={<NoSql />} />
           <Route path="/smtp" element={<SMTP />} />
           <Route path="/imap-pop3" element={<ImapPop3 />} />
@@ -119,6 +124,7 @@ const Routing = () => {
           <Route path="/active-directory" element={<AD />} />
           <Route path="/windows-commends" element={<PrivilegeEscalataion />} />
           <Route path="/bug-bounty" element={<BugBounty />} />
+          <Route path="/cases" element={<MainCases />} />
 
       </Routes>
     )

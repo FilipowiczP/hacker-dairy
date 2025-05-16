@@ -6,10 +6,6 @@ import authentication_session_token from '../../../assets/authentication_session
 import authentication_session_fixed from '../../../assets/authentication_session_fixed.png';
 import authentication_trafic from '../../../assets/authentication_trafic.png';
 import authentication_session_db from '../../../assets/authentication_session_db.png';
-import authentication_hash from '../../../assets/authentication_hash.png';
-import authentication_rsa_sign2n from '../../../assets/authentication_rsa_sign2n.png';
-import authentication_public_key from '../../../assets/authentication_public_key.png';
-import authentication_create from '../../../assets/authentication_create.png';
 import ExampleFrame from '../../exampleFrame/ExampleFrame';
 
 const Authentication = () => {
@@ -254,24 +250,6 @@ const Authentication = () => {
                 <ExampleFrame screen={authentication_session_db}/>
             </details>
 
-            <hr />
-            <details>
-                <summary>JWT - Zamieszanie algorytmiczne</summary>
-                <ExampleFrame screen={authentication_hash}/>
-                <Link to='https://github.com/FilipowiczP/rsa_sign2n'>JWT rsa_sign2n</Link>
-                <div className='waring'>
-                    <p>git clone https://github.com/FilipowiczP/rsa_sign2n</p>
-                    <p>cd rsa_sign2n/standalone/</p>
-                    <p>docker build . -t sig2n</p>
-                    <p>docker run -it sig2n /bin/bash</p>
-                    <p>python3 jwt_forgery.py {`<Token_1>`}  {`<Token_2>`}</p>
-                </div>
-                <ExampleFrame screen={authentication_rsa_sign2n} />
-                <p>cat {`<Wygenerowany plik.pem>`}</p>
-                <ExampleFrame screen={authentication_public_key} />
-                <p>Skopiowanie klucza i przerobienie (PAMIĘTAĆ! - ustawić odpowiedne szyfrowanie HS256)</p>
-                <ExampleFrame screen={authentication_create} />
-            </details>
         </section>
     )
 };
